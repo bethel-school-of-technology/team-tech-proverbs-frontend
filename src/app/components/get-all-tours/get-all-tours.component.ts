@@ -13,9 +13,9 @@ export class GetAllToursComponent implements OnInit {
   constructor (private tourService: TourService) {}
 
   ngOnInit(): void {
-    this.tourService.getAllTours().subscribe(tours => {
-      this.TourList = tours;
-      console.log(tours);
+    this.tourService.getAllTours().subscribe(response => {
+      this.TourList = response;
+      console.log(response[0].imageCover);
     })
   }
 }

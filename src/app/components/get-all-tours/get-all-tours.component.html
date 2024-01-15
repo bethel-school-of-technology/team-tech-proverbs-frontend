@@ -1,1 +1,8 @@
-<p>All Tours!</p>
+<h2>All Tours!</h2>
+<div class="parent">
+    <div class="card" *ngFor="let tour of TourList">
+        <h4>{{ tour.name }}</h4>
+        <img [src]="tour.imageCover" alt="">
+        <p> {{ tour.description }}</p>
+    </div>
+</div>
