@@ -8,7 +8,8 @@ import { TourService } from 'src/app/services/tour.service';
   styleUrls: ['./get-all-tours.component.css']
 })
 export class GetAllToursComponent implements OnInit {
-  TourList:Tour[] = []
+
+  TourList:Tour[] = [];
 
   constructor (private tourService: TourService) {}
 
