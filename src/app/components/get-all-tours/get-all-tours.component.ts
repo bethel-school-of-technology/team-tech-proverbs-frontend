@@ -22,7 +22,6 @@ export class GetAllToursComponent implements OnInit {
 
   getImageUrl(imageName: string): string {
     // Construct the full URL based on your backend server setup
-    // return `http://127.0.0.1:3004/public/img/tours/${imageName}`;
-    return `D:\finalProject\Rwandatours\public\img\tours\tour-2-cover.jpg`;
+    return `http://127.0.0.1:3004/public/img/tours/${imageName}`;
   }
 }

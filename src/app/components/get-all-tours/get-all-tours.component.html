@@ -2,7 +2,7 @@
 <div class="parent">
     <div class="card" *ngFor="let tour of TourList">
         <h4>{{ tour.name }}</h4>
-        <img [src]="getImageUrl(tour.imageCover)" alt="">
+        <img [src]="'../../../assets/img/tours/' + tour.imageCover">
         <p> {{ tour.description }}</p>
     </div>
 </div>
