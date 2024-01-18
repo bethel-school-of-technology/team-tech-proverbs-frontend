@@ -8,17 +8,25 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetAllToursComponent } from './components/get-all-tours/get-all-tours.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { UserSigninComponent } from './components/user-signin/user-signin.component';
+import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     GetAllToursComponent,
+    SignUpComponent,
+    UserSigninComponent,
+   
   ],
   imports: [
     BrowserModule,HttpClientModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatCardModule, MatButtonModule
+    MatCardModule, MatButtonModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
