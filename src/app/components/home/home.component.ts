@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
 
+
+  userEmail: string = '';
+
+  constructor(private userservice: UserService)
+  {
+
+  }
+
+  ngOnInit(): void {
+    this.userservice.user$.subscribe((email) => {
+      this.userEmail = email;
+    })
+  }
 }
