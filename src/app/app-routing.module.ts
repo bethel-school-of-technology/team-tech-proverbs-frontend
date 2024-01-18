@@ -4,7 +4,7 @@ import { GetAllToursComponent } from './components/get-all-tours/get-all-tours.c
 
 const routes: Routes = [
   {path: "", component: GetAllToursComponent},
-  {path: "allTours", component: GetAllToursComponent}
+  {path: "allTours", component: GetAllToursComponent},
 ];
 
 @NgModule({
