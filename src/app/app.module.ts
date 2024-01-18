@@ -12,11 +12,13 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserSigninComponent } from './components/user-signin/user-signin.component';
 import { FormsModule } from '@angular/forms';
 
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetAllToursComponent,
+    HomeComponent,
     SignUpComponent,
     UserSigninComponent,
    
