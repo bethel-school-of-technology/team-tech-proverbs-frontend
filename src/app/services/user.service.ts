@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,13 @@ export class UserService {
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
+  }
+
+  private userSubject = new BehaviorSubject<string>('');
+  user$ = this.userSubject.asObservable();
+  setUserEmail(email : string)
+  {
+    this.userSubject.next(email);
   }
 
   register(user: any): Observable<any> {
