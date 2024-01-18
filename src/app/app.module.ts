@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GetAllToursComponent } from './components/get-all-tours/get-all-tours.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GetAllToursComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,HttpClientModule,
