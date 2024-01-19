@@ -15,16 +15,16 @@
 .parentCard {
     margin-top: 40px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .WhyCard {
     width: 400px;
-    background-color: rgb(177, 176, 176);
+    /* background-color: rgb(177, 176, 176); */
     text-align: center;
     padding: 10px;
 }
 .WhyCard h2 {
-    color: #598D39;
+    color: black;
 } 
 .topHead {
     text-align: center;
