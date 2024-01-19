@@ -19,9 +19,12 @@ nav {
 .nav-links a {
     padding-top: 30px;
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: medium;
     color: black;
+}
+.nav-links a:hover {
+    color: #77777a;
 }
 .nav-logo {
     display: flex;
