@@ -1,11 +1,22 @@
 .heading {
-    margin: auto;
+    background-image: url(https://images.unsplash.com/photo-1705311756049-d4720db623f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 100%;
+    padding: 200px;
     margin-top: 20px;
     text-align: center;
+    color: white;
 }
 .heading h1 {
     font-size: 50px;
     font-weight: bolder;
+    color: #598D39;
+    color: white;
+}
+.heading span {
     color: #598D39;
 }
 .width-10 {
@@ -15,7 +26,7 @@
 .parentCard {
     margin-top: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .WhyCard {
     width: 400px;
@@ -32,7 +43,7 @@
 }
 .topTours {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
