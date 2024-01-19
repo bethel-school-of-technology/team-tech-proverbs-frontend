@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,7 +28,7 @@ import { HomeComponent } from './components/home/home.component';
     BrowserModule,HttpClientModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    MatCardModule, MatButtonModule,
+    MatCardModule, MatButtonModule,MatIconModule,
     FormsModule
   ],
   providers: [],
