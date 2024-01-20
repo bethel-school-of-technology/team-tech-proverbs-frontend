@@ -13,7 +13,7 @@ export class UserSigninComponent {
   email:'',
   password: ''
  }
-
+ errorMessage: string = '';
  constructor(private userservice : UserService, private router: Router)
  {}
  onSubmit(){
@@ -26,6 +26,13 @@ export class UserSigninComponent {
     },
     (error) => {
       console.error('Logged in Fail', error);
+      
+      if (error.status === 401) {
+        this.errorMessage = 'An unexpected error occurred.';
+      } else {
+        this.errorMessage = 'Signin failed. Wrong password. Try to Login Again';
+        
+      }
     }
   );
  }

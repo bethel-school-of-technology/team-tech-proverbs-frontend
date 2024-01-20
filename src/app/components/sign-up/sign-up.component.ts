@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit{
     password: '',
     passwordConfirm: ''
   };
-
+  errorMessage: string = '';
   constructor(private userservice :UserService, private router: Router){}
 
   
@@ -27,11 +27,16 @@ export class SignUpComponent implements OnInit{
     this.userservice.register(this.user).subscribe(
       (response) => {
         console.log('User registered successfully', response);
-        this.router.navigate(['/login']); 
+        this.router.navigate(['/tours']); 
       },
       (error) => {
         console.error('Error registering user', error);
-        
+
+        if (error.status === 500 && error.error.message.includes('Password validation')) {
+          this.errorMessage = 'An unexpected error occurred.';
+        } else {
+          this.errorMessage = 'Password must be at least 6 characters.';
+        }
       }
     );
   }
