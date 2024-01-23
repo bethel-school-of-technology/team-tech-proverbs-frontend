@@ -14,7 +14,7 @@ import { UserSigninComponent } from './components/user-signin/user-signin.compon
 import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
-import { TourDetailsComponent } from './tour-details/tour-details.component';
+import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 
 @NgModule({
   declarations: [
