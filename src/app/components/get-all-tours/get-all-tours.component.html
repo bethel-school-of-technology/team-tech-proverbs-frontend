@@ -65,7 +65,7 @@
             rating ({{ tour.ratingsQuantity }})</span
           >
         </p>
-        <a routerLink="homepage" class="btn btn--green btn--small">Details</a>
+        <a [routerLink]="'/tourdetails/'+ tour.slug" class="btn btn--green btn--small">Details</a>
       </div>
     </div>
   </div>

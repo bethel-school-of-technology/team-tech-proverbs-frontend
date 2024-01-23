@@ -12,9 +12,6 @@ export class TourService {
 
   constructor(private http: HttpClient) { }
 
-  // getAllTours(): Observable<Tour[]> {
-  //   return this.http.get<Tour[]>(this.Url);
-  // }
   getAllTours(): Observable<Tour[]> {
     return this.http.get<any>(this.Url)
       .pipe(
@@ -26,5 +23,10 @@ export class TourService {
           return tours.map((tourData: any) => new Tour(tourData));
         })
       );
+  }
+  getTourBySlug(slug: string): Observable<any> {
+    const url = `${this.Url}/tours/${slug}`; // Adjust the URL structure based on your API
+
+    return this.http.get(url);
   }
 }
