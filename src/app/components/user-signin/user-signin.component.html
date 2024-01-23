@@ -1,6 +1,6 @@
 
-
-<!-- <div class="signin-container">
+<br><br>
+<div class="signin-container">
     <h2>Sign In</h2>
     <form (ngSubmit)="onSubmit()" #signinForm="ngForm">
       <div class="form-group">
@@ -14,55 +14,9 @@
       </div>
   
       <button type="submit">Sign In</button>
-    </form> -->
+    </form>
 
-  <div class="background-image">
-    <div class="container mt-5">
-      <div class="card signin-card" style="max-width: 400px; margin:0px auto 20px; background-color: white;">
-        <div class="card-body">
-          <h2 class="card-title text-center">Sign In</h2>
-          <form (ngSubmit)="onSubmit()" #signinForm="ngForm">
-            <!-- Email input -->
-            <div class="form-group">
-              <label class="form-label" for="email">Email address</label>
-              <input  type="email" id="email" name="email" class="form-control" [(ngModel)]="credentials.email" required />
-            </div>
-      
-            <!-- Password input -->
-            <div class="form-group">
-              <label class="form-label" for="password">Password</label>
-              <input type="password" id="password" name="password" class="form-control" [(ngModel)]="credentials.password" required />
-            </div>
-      
-            <!-- 2 column grid layout for inline styling -->
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-                <!-- Checkbox -->
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberMe" checked />
-                  <label class="form-check-label" for="rememberMe"> Remember me </label>
-                </div>
-              </div>
-      
-              <div class="col text-end">
-                <!-- Simple link -->
-                <a href="#!" class="text-decoration-none">Forgot password?</a>
-              </div>
-            </div>
-      
-            <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-2">Sign in</button>
-      
-            <!-- Register buttons -->
-            <div class="text-center">
-              <p>New User? <a href="#!" class="text-decoration-none">Sign Up</a></p>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  
+
   
   
   

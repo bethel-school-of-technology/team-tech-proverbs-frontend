@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit{
     passwordConfirm: ''
   };
   errorMessage: string = '';
+  
   constructor(private userservice :UserService, private router: Router){}
 
   
