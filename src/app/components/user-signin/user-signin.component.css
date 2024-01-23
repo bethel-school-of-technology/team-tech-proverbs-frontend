@@ -1,0 +1,15 @@
+.background-image {
+    /* border: 1px solid red; */
+    background-image: url('https://images.unsplash.com/photo-1621693155263-bccdf1fb0cb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 100px; */
+    height: 100vh; /* Adjust the height as needed */
+  }
+
+  .form-control{
+    border: 1px solid skyblue;
+  }
