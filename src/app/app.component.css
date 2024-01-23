@@ -58,21 +58,10 @@ nav {
     width: 30%;
     text-align: center;
 }
-.button-green {
-    height: 50px;
-    width: 100px;
-    margin: 10px;
-    background-color: #598d39;
-    color: white;
-    border: none;
-    border-radius: 50px;
+.eii {
+    margin-top: 15px;
 }
-.button-yellow {
-    height: 50px;
-    width: 100px;
-    margin: 10px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 50px;
+.ei {
+    margin-top: 15px;
+    margin-left: 15px;
 }
