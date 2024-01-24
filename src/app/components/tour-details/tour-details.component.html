@@ -1,19 +1,11 @@
-<head>
-  <script src="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.js"></script>
-  <link
-    href="https://api.mapbox.com/mapbox-gl-js/v0.50.0/mapbox-gl.css"
-    rel="stylesheet"
-  />
-</head>
-
 <section class="section-header">
   <div class="header__hero">
     <div class="header__hero-overlay">&nbsp;</div>
-    <!-- <img
+    <img
       class="header__hero-img"
       [src]="'../../../assets/img/tours/' + tour.imageCover"
       alt="{{ tour.name }}"
-    /> -->
+    />
   </div>
   <div class="heading-box">
     <h1 class="heading-primary">
@@ -48,9 +40,9 @@
             <use xlink:href="../../../assets/img/icons.svg#icon-calendar"></use>
           </svg>
           <span class="overview-box__label">Next date</span>
-          <span class="overview-box__text"> {{
-            tour.startDates[0] | date : "MMMM yyyy"
-          }}</span>
+          <span class="overview-box__text">
+            {{ tour.startDates[0] | date : "MMMM yyyy" }}</span
+          >
         </div>
         <div class="overview-box__detail">
           <svg class="overview-box__icon">
@@ -66,34 +58,38 @@
             <use xlink:href="../../../assets/img/icons.svg#icon-user"></use>
           </svg>
           <span class="overview-box__label">Participants</span>
-          <span class="overview-box__text">{{tour.maxGroupSize}} people</span>
+          <span class="overview-box__text">
+            {{ tour.maxGroupSize }} people</span
+          >
         </div>
         <div class="overview-box__detail">
           <svg class="overview-box__icon">
             <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
           </svg>
           <span class="overview-box__label">Rating</span>
-          <span class="overview-box__text"> {{tour.ratingsAverage}} / 5</span>
+          <span class="overview-box__text"> {{ tour.ratingsAverage }} / 5</span>
         </div>
       </div>
-      <!-- <div class="overview-box__group">
+      <div class="overview-box__group">
         <h2 class="heading-secondary ma-bt-lg">Your tour guides</h2>
-      
+
         <div *ngFor="let guide of tour.guides" class="overview-box__detail">
-          <img class="overview-box__img" [src]="'../../../assets/img/users/' + guide.photo" [alt]="guidesname" />
-      
+          <img
+            class="overview-box__img"
+            [src]="'../../../assets/img/users/' + guide.photo"
+          />
+
           <ng-container *ngIf="guide.role === 'lead-guide'; else tourGuide">
             <span class="overview-box__label">Lead guide</span>
           </ng-container>
-      
+
           <ng-template #tourGuide>
             <span class="overview-box__label">Tour guide</span>
           </ng-template>
-      
+
           <span class="overview-box__text">{{ guide.name }}</span>
         </div>
-      </div> -->
-      
+      </div>
     </div>
   </div>
 
@@ -114,151 +110,38 @@
   </div>
 </section>
 <section class="section-pictures">
-  <div class="picture-box">
+  <div *ngFor="let img of tour.images; let i = index" class="picture-box">
     <img
-      class="picture-box__img picture-box__img--1"
-      src="../../../assets/img/tours/tour-5-1.jpg"
-      alt="{{tour.name}}"
+      [src]="'../../../assets/img/tours/' + img" [alt]="'{{ tour.name }} ' + (i + 1)"
+      [class]="'picture-box__img--1' + (i + 1)"
+      class="picture-box__img "
     />
   </div>
 </section>
 
 <section class="section-map">
-  <div id="map"></div>
-  <script>
-    mapboxgl.accessToken =
-      "pk.eyJ1Ijoiam9uYXNzY2htZWR0bWFubiIsImEiOiJjam54ZmM5N3gwNjAzM3dtZDNxYTVlMnd2In0.ytpI7V7w7cyT1Kq5rT9Z1A";
-
-    const geojson = {
-      type: "FeatureCollection",
-      features: [
-        {
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [-112.987418, 37.198125],
-          },
-          properties: {
-            description: "Zion Canyon National Park",
-          },
-        },
-        {
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [-111.376161, 36.86438],
-          },
-          properties: {
-            description: "Antelope Canyon",
-          },
-        },
-        {
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [-112.115763, 36.058973],
-          },
-          properties: {
-            description: "Grand Canyon National Park",
-          },
-        },
-        {
-          type: "Feature",
-          geometry: {
-            type: "Point",
-            coordinates: [-116.107963, 34.011646],
-          },
-          properties: {
-            description: "Joshua Tree National Park",
-          },
-        },
-      ],
-    };
-
-    const map = new mapboxgl.Map({
-      container: "map",
-      style: "mapbox://styles/jonasschmedtmann/cjnxfn3zk7bj52rpegdltx58h",
-      scrollZoom: false,
-    });
-
-    const bounds = new mapboxgl.LngLatBounds();
-
-    geojson.features.forEach(function (marker) {
-      var el = document.createElement("div");
-      el.className = "marker";
-
-      new mapboxgl.Marker({
-        element: el,
-        anchor: "bottom",
-      })
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
-
-      new mapboxgl.Popup({
-        offset: 30,
-        closeOnClick: false,
-      })
-        .setLngLat(marker.geometry.coordinates)
-        .setHTML("<p>" + marker.properties.description + "</p>")
-        .addTo(map);
-
-      bounds.extend(marker.geometry.coordinates);
-    });
-
-    map.fitBounds(bounds, {
-      padding: {
-        top: 200,
-        bottom: 150,
-        left: 50,
-        right: 50,
-      },
-    });
-
-    map.on("load", function () {
-      map.addLayer({
-        id: "route",
-        type: "line",
-        source: {
-          type: "geojson",
-          data: {
-            type: "Feature",
-            properties: {},
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                [-112.987418, 37.198125],
-                [-111.376161, 36.86438],
-                [-112.115763, 36.058973],
-                [-116.107963, 34.011646],
-              ],
-            },
-          },
-        },
-        layout: {
-          "line-join": "round",
-          "line-cap": "round",
-        },
-        paint: {
-          "line-color": "#55c57a",
-          "line-opacity": 0.6,
-          "line-width": 3,
-        },
-      });
-    });
-  </script>
+  <div id="map" [attr.data-locations]="tour.locations"></div>
 </section>
 
 <section class="section-reviews">
-    <div class="reviews__card" *ngFor="let review of tour.reviews">
-        <div class="reviews__avatar">
-          <img class="reviews__avatar-img" [src]="'../../../assets/img/users/' + review.user.photo" [alt]="review.user.name" />
-          <h6 class="reviews__user">{{ review.user.name }}</h6>
-        </div>
-        <p class="reviews__text">{{ review.review }}</p>
-        <div class="reviews__rating">
-          <svg *ngFor="let star of [1, 2, 3, 4, 5]" class="reviews__star" [class.reviews__star--active]="review.rating >= star">
-            <use xlink:href="/img/icons.svg#icon-star"></use>
-          </svg>
+  <div class="reviews__card" *ngFor="let review of tour.reviews">
+    <div class="reviews__avatar">
+      <img
+        class="reviews__avatar-img"
+        [src]="'../../../assets/img/users/' + review.user.photo"
+        [alt]="review.user.name"
+      />
+      <h6 class="reviews__user">{{ review.user.name }}</h6>
+    </div>
+    <p class="reviews__text">{{ review.review }}</p>
+    <div class="reviews__rating">
+      <svg
+        *ngFor="let star of [1, 2, 3, 4, 5]"
+        class="reviews__star"
+        [class.reviews__star--active]="review.rating >= star"
+      >
+        <use xlink:href="/img/icons.svg#icon-star"></use>
+      </svg>
       <p class="reviews__text">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
         dignissimos sint quo commodi corrupti accusantium veniam saepe numquam.
@@ -287,30 +170,21 @@
 <section class="section-cta">
   <div class="cta">
     <div class="cta__img cta__img--logo">
-      <!-- <img
-        src="../../../assets/img/logo-white.png"
-        alt="Natours logo"
-        class=""
-      /> -->
+      <img src="../../../assets/img/logo.png" alt="Awesome tours logo">
     </div>
-    <img
-      src="../../../assets/img/tours/tour-5-2.jpg"
-      alt=""
-      class="cta__img cta__img--1"
-    />
-    <img
-      src="../../../assets/img/tours/tour-5-1.jpg"
-      alt=""
-      class="cta__img cta__img--2"
-    />
-
+    <img class="cta__img cta__img--1" [src]="'../../../assets/img/tours/' + tour.images[1]" alt="Tour picture">
+    <img class="cta__img cta__img--2" [src]="'../../../assets/img/tours/' + tour.images[2]" alt="Tour picture">
     <div class="cta__content">
       <h2 class="heading-secondary">What are you waiting for?</h2>
-      <p class="cta__text">
-        {{ tour.duration }} days. 1 adventure. Infinite memories. Make it yours
-        today!
-      </p>
-      <button class="btn btn--green span-all-rows">Book tour now!</button>
+      <p class="cta__text">{{ tour.duration }} days. 1 adventure. Infinite memories. Make it yours today!</p>
+      
+      <!-- <ng-container *ngIf="user; else loginButton">
+        <button class="btn btn--green span-all-rows" id="book-tour" [attr.data-tour-id]="tour.id">Book tour now!</button>
+      </ng-container> -->
+      
+      <ng-template #loginButton>
+        <a class="btn btn--green span-all-rows" href="/login">Log in to book tour</a>
+      </ng-template>
     </div>
   </div>
 </section>

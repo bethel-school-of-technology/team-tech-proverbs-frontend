@@ -29,7 +29,7 @@ export class Tour {
       description: string;
       day: number;
     }[] = [];
-    guides: {}[] = []; 
+    guides: any[] = []; 
   
     durationWeeks: number = 0;
 
