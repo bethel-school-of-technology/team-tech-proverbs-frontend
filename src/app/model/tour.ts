@@ -1,4 +1,5 @@
 export class Tour {
+    id: string = "";
     name: string = "";
     slug: string = '';
     duration: number = 0;
@@ -28,7 +29,7 @@ export class Tour {
       description: string;
       day: number;
     }[] = [];
-    guides: string[] = []; 
+    guides: any[] = []; 
   
     durationWeeks: number = 0;
 
