@@ -15,11 +15,6 @@ export class GetAllToursComponent implements OnInit {
   ngOnInit(): void {
     this.tourService.getAllTours().subscribe((response) => {
       this.TourList = response;
-<<<<<<< HEAD
-      // console.log(response[8].slug);
-=======
-      console.log(response[8].slug);
->>>>>>> 7a206697c1426cdf3a4fa107be9a90ce1b7a5648
     });
   }
 }
