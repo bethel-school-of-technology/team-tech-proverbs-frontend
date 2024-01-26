@@ -1,3 +1,6 @@
+.panret {
+    width: 100%;
+}
 .heading {
     background-image: url(https://images.unsplash.com/photo-1705311756049-d4720db623f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
     background-position: center;
@@ -6,7 +9,6 @@
     object-fit: cover;
     width: 100%;
     padding: 200px;
-    /* margin-top: 20px; */
     text-align: center;
     color: white;
 }
@@ -21,7 +23,6 @@
 }
 .width-10 {
     width: 50px;
-    /* color: #FAEF36; */
 }
 .parentCard {
     margin-top: 40px;
@@ -30,7 +31,6 @@
 }
 .WhyCard {
     width: 400px;
-    /* background-color: rgb(177, 176, 176); */
     text-align: center;
     padding: 10px;
 }
@@ -58,4 +58,81 @@
 }
 .eachTour p {
     width: 100%;
+}
+
+@media only screen and (max-width: 376px) {
+    .heading {
+        padding: 0px;
+        padding-top: 120px;
+        padding-bottom: 120px;
+        position: relative;
+    }
+    .heading h1 {
+        font-size: 30px;
+        font-weight: bolder;
+        color: #55c57a;
+        color: white;
+    } 
+    .parentCard {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+    .WhyCard {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 0;
+        margin-top: 20px;
+        /* background-color: blue; */
+    }
+    .topTours {
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+    }
+    .eachTour {
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width: 753px) { 
+    .heading {
+        padding: 0px;
+        padding-top: 200px;
+        padding-bottom: 200px;
+        position: relative;
+    }
+    .heading h1 {
+        font-size: 30px;
+        font-weight: bolder;
+        color: #55c57a;
+        color: white;
+        white-space: pre-wrap;
+    }
+    .parentCard {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        text-align: center;
+    }
+    .WhyCard {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        padding: 0;
+        margin-top: 20px;
+        /* background-color: blue; */
+    }
+    .topTours {
+        flex-direction: column;
+        margin: auto;
+        text-align: center;
+    }
+    .eachTour {
+        width: 90%;
+    }
 }
