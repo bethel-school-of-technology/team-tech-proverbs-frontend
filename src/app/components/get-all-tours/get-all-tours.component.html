@@ -1,5 +1,5 @@
-<section class="overview">
-  <div class="card-container">
+<section class="overview container">
+  <div class="card-container row">
     <div class="card" *ngFor="let tour of TourList">
       <div class="card__header">
         <div class="card__picture">
@@ -62,11 +62,15 @@
             rating ({{ tour.ratingsQuantity }})</span
           >
         </p>
+<<<<<<< HEAD
         <a
           [routerLink]="'/tourDetails/' + tour.id"
           class="btn btn--green btn--small"
           >Details</a
         >
+=======
+        <a [routerLink]="'/tourdetails/'+ tour.slug" class="btn btn--green btn--small">Details</a>
+>>>>>>> 7a206697c1426cdf3a4fa107be9a90ce1b7a5648
       </div>
     </div>
   </div>
