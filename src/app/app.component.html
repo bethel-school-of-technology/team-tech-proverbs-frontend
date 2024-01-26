@@ -1,4 +1,4 @@
-<nav>
+<nav class="sm-12">
     <div class="nav-logo">
         <div class="logoImg">
             <img src="../assets/img/logo.png">
@@ -7,14 +7,35 @@
             <h2>AwesomeTours</h2>
         </div>
     </div>
-    <div class="nav-links">
+    <div class="nav-links" fxHide.lt-md>
         <a routerLink="home">Home</a>
         <a routerLink="tours">Tours</a>
         <a routerLink="contact">Contacts</a>
     </div>
-    <div class="nav-signIN">
-        <a class="btn btn--green btn--small eii" routerLink="/signup">Sign Up</a>
-        <a class="btn btn--black btn--small ei" routerLink="/login">Sign In</a>
+    <div class="nav-signIN eii" fxHide.lt-md>
+        <Button class="btn btn--green btn--small" routerLink="/signup">Sign Up</Button>
+        <Button class="btn btn--black btn--small" routerLink="/login">Sign In</Button>
     </div>
+    <div class="mobile" fxHide.gt-sm (click)="toggleMenu()">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" viewBox="0 0 24 24" 
+          stroke-width="1.5" 
+          stroke="currentColor" 
+          class="icons">
+          <path 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" 
+          />
+        </svg>    
+        <div class="menu-content" *ngIf="isMenuOpen">
+          <ul>
+            <li>HOME</li>
+            <li>TOURS</li>
+            <li>CONTACTS</li>
+          </ul>     
+        </div> 
+      </div>
 </nav>
 <router-outlet></router-outlet>
