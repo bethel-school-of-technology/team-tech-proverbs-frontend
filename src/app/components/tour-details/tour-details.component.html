@@ -94,7 +94,7 @@
   </div>
 
   <div class="description-box">
-    <h2 class="heading-secondary ma-bt-lg">About the park camper tour</h2>
+    <h2 class="heading-secondary ma-bt-lg">About {{tour.name}} tour</h2>
     <p class="description__text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -112,9 +112,10 @@
 <section class="section-pictures">
   <div *ngFor="let img of tour.images; let i = index" class="picture-box">
     <img
-      [src]="'../../../assets/img/tours/' + img" [alt]="'{{ tour.name }} ' + (i + 1)"
-      [class]="'picture-box__img--1' + (i + 1)"
-      class="picture-box__img "
+      class="picture-box__img"
+      [src]="'../../../assets/img/tours/' + img"
+      [alt]="'{{ tour.name }} ' + (i + 1)"
+      [class]="'picture-box__img--' + (i + 1)"
     />
   </div>
 </section>
@@ -124,43 +125,24 @@
 </section>
 
 <section class="section-reviews">
-  <div class="reviews__card" *ngFor="let review of tour.reviews">
-    <div class="reviews__avatar">
-      <img
-        class="reviews__avatar-img"
-        [src]="'../../../assets/img/users/' + review.user.photo"
-        [alt]="review.user.name"
-      />
-      <h6 class="reviews__user">{{ review.user.name }}</h6>
-    </div>
-    <p class="reviews__text">{{ review.review }}</p>
-    <div class="reviews__rating">
-      <svg
-        *ngFor="let star of [1, 2, 3, 4, 5]"
-        class="reviews__star"
-        [class.reviews__star--active]="review.rating >= star"
-      >
-        <use xlink:href="/img/icons.svg#icon-star"></use>
-      </svg>
-      <p class="reviews__text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque
-        dignissimos sint quo commodi corrupti accusantium veniam saepe numquam.
-      </p>
+  <div class="reviews">
+    <div class="reviews__card" *ngFor="let review of tour.reviews">
+      <div class="reviews__avatar">
+        <img
+          class="reviews__avatar-img"
+          [src]="'../../../assets/img/users/' + review.user.photo"
+          [alt]="review.user.name"
+        />
+        <h6 class="reviews__user">{{ review.user.name }}</h6>
+      </div>
+      <p class="reviews__text">{{ review.review }}</p>
       <div class="reviews__rating">
-        <svg class="reviews__star reviews__star--active">
-          <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
-        </svg>
-        <svg class="reviews__star reviews__star--active">
-          <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
-        </svg>
-        <svg class="reviews__star reviews__star--active">
-          <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
-        </svg>
-        <svg class="reviews__star reviews__star--active">
-          <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
-        </svg>
-        <svg class="reviews__star reviews__star--active">
-          <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
+        <svg
+          *ngFor="let star of [1, 2, 3, 4, 5]"
+          class="reviews__star"
+          [class.reviews__star--active]="review.rating >= star ? 'active' : 'inactive'"
+        >
+          <use xlink:href="/img/icons.svg#icon-star"></use>
         </svg>
       </div>
     </div>
@@ -170,20 +152,33 @@
 <section class="section-cta">
   <div class="cta">
     <div class="cta__img cta__img--logo">
-      <img src="../../../assets/img/logo.png" alt="Awesome tours logo">
+      <img src="../../../assets/img/logo.png" alt="Awesome tours logo" />
     </div>
-    <img class="cta__img cta__img--1" [src]="'../../../assets/img/tours/' + tour.images[1]" alt="Tour picture">
-    <img class="cta__img cta__img--2" [src]="'../../../assets/img/tours/' + tour.images[2]" alt="Tour picture">
+    <img
+      class="cta__img cta__img--1"
+      [src]="'../../../assets/img/tours/' + tour.images[1]"
+      alt="Tour picture"
+    />
+    <img
+      class="cta__img cta__img--2"
+      [src]="'../../../assets/img/tours/' + tour.images[2]"
+      alt="Tour picture"
+    />
     <div class="cta__content">
       <h2 class="heading-secondary">What are you waiting for?</h2>
-      <p class="cta__text">{{ tour.duration }} days. 1 adventure. Infinite memories. Make it yours today!</p>
-      
+      <p class="cta__text">
+        {{ tour.duration }} days. 1 adventure. Infinite memories. Make it yours
+        today!
+      </p>
+
       <!-- <ng-container *ngIf="user; else loginButton">
         <button class="btn btn--green span-all-rows" id="book-tour" [attr.data-tour-id]="tour.id">Book tour now!</button>
       </ng-container> -->
-      
+
       <ng-template #loginButton>
-        <a class="btn btn--green span-all-rows" href="/login">Log in to book tour</a>
+        <a class="btn btn--green span-all-rows" href="/login"
+          >Log in to book tour</a
+        >
       </ng-template>
     </div>
   </div>
