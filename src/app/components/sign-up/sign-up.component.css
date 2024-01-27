@@ -1,6 +1,16 @@
 /* sign-up.component.css */
 
-.signup-container {
+.background-image {
+  background-image: url('https://images.unsplash.com/photo-1621693155263-bccdf1fb0cb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust the height as needed */
+} 
+
+/* .signup-container {
     max-width: 400px;
     margin: auto;
     padding: 20px;
@@ -9,11 +19,11 @@
     border-radius: 5px;
   }
   
-  h2 {
+  /* h2 {
     text-align: center;
     color: #333;
   }
-  
+   */
   .form-group {
     margin-bottom: 15px;
   }
@@ -34,18 +44,21 @@
   }
   
   button {
-    width: 100%;
+    width: 45%;
     padding: 12px;
     color: #fff;
-    background-color: #3498db;
+    background-color: #29b982;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    margin: auto;
   }
   
   button:hover {
-    background-color: #2980b9;
-  }
+    background-color: #2bad32
+    ;
+  } */
   
   .error-message {
     color: #e74c3c;
