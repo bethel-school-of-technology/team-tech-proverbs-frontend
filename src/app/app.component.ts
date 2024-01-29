@@ -7,5 +7,11 @@ import { Component,  } from '@angular/core';
 })
 export class AppComponent {
   title = 'FinalProject';
+  isMenuOpen = false;
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    console.log(this.isMenuOpen);
+  }
 
 }
