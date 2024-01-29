@@ -41,11 +41,11 @@ export class TourDetailsComponent implements OnInit {
     }
 
     mapboxgl.accessToken =
-      'pk.eyJ1IjoiaXNoa2V2MzIiLCJhIjoiY2xwdjdqd2lqMDM0bTJqbHdzd3gyZzhjaSJ9.6mEuYfCw9lwaSa7nvErIAQ';
+      'pk.eyJ1IjoiaXNoa2V2MzIiLCJhIjoiY2xwdjcyZDEyMDI4dDJqbnVuZ3ZkODNyeSJ9.CYB_n3qPz5IJbRts7jNkdQ';
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/ishkev32/clpvaci5z01gp01p9f0f4cik8',
+      style: 'mapbox://styles/ishkev32/clrz81e1u005u01pa45re0s3u',
       scrollZoom: false,
     });
 
@@ -57,7 +57,7 @@ export class TourDetailsComponent implements OnInit {
 
       if (!Array.isArray(loc.coordinates) || loc.coordinates.length !== 2) {
         console.error('Invalid coordinates:', loc.coordinates);
-        return; // Skip this location
+        return;
       }
 
       new mapboxgl.Marker({
