@@ -1,6 +1,6 @@
 .section-header {
   position: relative;
-  /* height: 38vw; */
+  height: 38vw;
   clip-path: polygon(
     0 0,
     100% 0,
@@ -39,8 +39,8 @@
     from(#7dd56f),
     to(#28b487)
   );
-  background-image: linear-gradient(to right bottom, #7dd56f, #28b487);
-  opacity: 0.85;
+  background-image: linear-gradient(to right bottom, #2e2e2e, #151515);
+  opacity: 0.5;
 }
 
 .heading-box {
