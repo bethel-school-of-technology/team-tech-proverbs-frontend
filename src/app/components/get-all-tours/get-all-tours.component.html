@@ -34,10 +34,7 @@
             <use xlink:href="../../../assets/img/icons.svg#icon-calendar"></use>
           </svg>
           <span>{{
-            tour.startDates[0].toLocaleString("en-us", {
-              month: "long",
-              year: "numeric"
-            })
+            tour.startDates[0] | date : "MMMM yyyy"
           }}</span>
         </div>
         <div class="card__data">
@@ -65,7 +62,11 @@
             rating ({{ tour.ratingsQuantity }})</span
           >
         </p>
-        <a [routerLink]="'/tourdetails/'+ tour.slug" class="btn btn--green btn--small">Details</a>
+        <a
+          [routerLink]="'/tourDetails/' + tour.id"
+          class="btn btn--green btn--small"
+          >Details</a
+        >
       </div>
     </div>
   </div>
