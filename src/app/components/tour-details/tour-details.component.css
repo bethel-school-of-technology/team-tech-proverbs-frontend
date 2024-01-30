@@ -216,7 +216,7 @@
 }
 
 .marker {
-  /* background-image: url("../img/pin.png"); */
+  background-image: url("../../../assets/img/pin.png");
   background-size: cover;
   width: 32px;
   height: 40px;
@@ -456,9 +456,4 @@
   max-width: 68rem;
   margin: 0 auto;
   padding: 0 8rem;
-}
-
-#map {
-    height: 400px;
-    width: 100;
 }
