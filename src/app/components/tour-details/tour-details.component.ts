@@ -52,17 +52,8 @@ export class TourDetailsComponent implements OnInit {
     const bounds = new mapboxgl.LngLatBounds();
 
     locations.forEach((loc) => {
-      const el = document.createElement('div');
-      el.className = 'marker';
-
-      if (!Array.isArray(loc.coordinates) || loc.coordinates.length !== 2) {
-        console.error('Invalid coordinates:', loc.coordinates);
-        return;
-      }
-
       new mapboxgl.Marker({
-        element: el,
-        anchor: 'bottom',
+        color: '#55c57a'
       })
         .setLngLat(loc.coordinates)
         .addTo(map);

@@ -221,6 +221,7 @@
 
 .marker {
   background-image: url("../../../assets/img/pin.png");
+  background-image: url("../../../assets/img/pin.png");
   background-size: cover;
   width: 32px;
   height: 40px;
@@ -461,16 +462,3 @@
   margin: 0 auto;
   padding: 0 8rem;
 }
-
-@media (max-width: 992px) {
-    .section-header {
-        max-width: 600px;
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .section-header {
-        max-width: 600px;
-    }
-  }
-  
