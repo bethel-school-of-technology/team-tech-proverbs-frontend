@@ -52,6 +52,7 @@ export class TourDetailsComponent implements OnInit {
     const bounds = new mapboxgl.LngLatBounds();
 
     locations.forEach((loc) => {
+      
       new mapboxgl.Marker({
         color: '#55c57a'
       })
