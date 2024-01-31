@@ -16,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TourDetailsComponent } from './components/tour-details/tour-details.com
     SignUpComponent,
     UserSigninComponent,
     TourDetailsComponent,
+    UserProfileComponent,
    
   ],
   imports: [
