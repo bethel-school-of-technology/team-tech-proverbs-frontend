@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
+import { Observable, catchError, map } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
+import { User } from '../model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,34 @@ export class UserService {
 
 
   constructor(private http : HttpClient) { }
+
+  getUserById(userId: string): Observable<any> {
+    const userUrl = `${this.Url}/${userId}`;
+    return this.http.get<any>(userUrl).pipe(
+      map((response) => {
+        // Assuming the 'data' property contains the array of tours
+        const users = response.data ? response.data.data : null;
+
+        // Assuming your Tour model has properties like startLocation, ratingsAverage, etc.
+        return users? new User(users) : null;
+      })
+    );
+  }
+
+  updateUserData(userData: any): Observable<any> {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this.http
+      .patch<any>(`${this.Url}/profile`, userData, { headers }) // Adjust endpoint as per your backend API
+      .pipe(catchError(this.handleError));
+  }
+
+  uploadUserPhoto(photo: File): Observable<any> {
+    const formData: FormData = new FormData();
+    formData.append('photo', photo);
+    return this.http
+      .post<any>(`${this.Url}/uploadPhoto`, formData) // Adjust endpoint as per your backend API
+      .pipe(catchError(this.handleError));
+  }
 
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
