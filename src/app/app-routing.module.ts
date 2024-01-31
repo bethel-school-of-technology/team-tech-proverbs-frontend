@@ -7,7 +7,7 @@ import { UserSigninComponent } from './components/user-signin/user-signin.compon
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 
 const routes: Routes = [
-  {path: "", component: GetAllToursComponent},
+  {path: "", component: HomeComponent},
   {path: "tours", component: GetAllToursComponent},
   {path: "home", component: HomeComponent},
   {path: "signup", component: SignUpComponent},
