@@ -170,7 +170,7 @@
       </p>
 
       <!-- <ng-container *ngIf="user; else loginButton">
-        <button class="btn btn--green span-all-rows" id="book-tour" [attr.data-tour-id]="tour.id">Book tour now!</button>
+        <button class="btn btn--green span-all-rows" id="book-tour" (click)="processPayment()" [attr.data-tour-id]="tour.id">Book tour now!</button>
       </ng-container> -->
 
       <ng-template #loginButton>

@@ -2,9 +2,12 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tour } from 'src/app/model/tour';
 import { TourService } from 'src/app/services/tour.service';
+import { BookingService } from 'src/app/services/booking.service';
+import { environment } from 'src/environments/environment';
 
 // Declare mapboxgl as a global variable
 declare const mapboxgl: any;
+declare const Stripe: any;
 
 @Component({
   selector: 'app-tour-details',
@@ -17,7 +20,8 @@ export class TourDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private tourService: TourService
+    private tourService: TourService,
+    private bookingService: BookingService
   ) {}
 
   ngOnInit(): void {
@@ -72,4 +76,29 @@ export class TourDetailsComponent implements OnInit {
       },
     });
   }
+
+  processPayment(): void {
+    const tourId = this.route.snapshot.params['id'];
+
+    this.bookingService.createCheckoutSession(tourId).subscribe(
+      (session) => {
+        // Initialize Stripe with your public key
+        const stripe = Stripe(environment.stripePublicKey);
+
+        // Redirect to Stripe checkout page
+        stripe.redirectToCheckout({
+          sessionId: session.session.id
+        }).then(function (result: { error: { message: any; }; }) {
+          if (result.error) {
+            // Handle any errors that occur during redirection
+            console.error(result.error.message);
+          }
+        });
+      },
+      (error) => {
+        console.error('Error creating checkout session:', error);
+      }
+    );
+  }
 }
+
