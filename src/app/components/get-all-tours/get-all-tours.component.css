@@ -1,5 +1,5 @@
 .card-container {
-  /* max-width: 200rem; */
+  max-width: 200rem;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
