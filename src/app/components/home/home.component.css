@@ -48,17 +48,85 @@
     width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    margin-bottom: 20px;
 }
 .eachTour {
-    text-align: center;
+    text-align: left;
     width: 30%;
     margin: 10px;
 }
 .eachTour img {
     width: 100%;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 }
 .eachTour p {
     width: 100%;
+}
+.reviews svg{
+    width: 25px;
+    color: white;
+}
+.reviews span {
+    font-weight: bold;
+}
+.toupar {
+    margin-top: 5px;
+}
+.price {
+    font-weight: bold;
+}
+.free {
+    text-align: center;
+    background-color: rgb(230, 241, 247);
+    padding: 50px;
+}
+.free h2 {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.otherDest {
+    text-align: center;
+    margin-top: 20px;
+}
+.otherParent {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.children {
+    width: 300px;
+    text-align: left;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.children img {
+    width: 100%;
+    height: 50%;
+    object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+.children h2 {
+    margin: 0;
+    padding: 0;
+    margin-left: 10px;
+    padding-top: 10px;
+}
+.children p {
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.btnM {
+    margin-left: 10px;
 }
 
 @media only screen and (max-width: 376px) {
@@ -97,6 +165,17 @@
     }
     .eachTour {
         width: 90%;
+    }
+    .otherParent{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .children {
+        width: 100%;
+        text-align: left;
+        border-radius: 10px;
+        padding-bottom: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 }
 
