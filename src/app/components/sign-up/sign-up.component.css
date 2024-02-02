@@ -1,6 +1,16 @@
 /* sign-up.component.css */
+/* 
+  .background-image {
+  background-image: url('https://images.unsplash.com/photo-1621693155263-bccdf1fb0cb8?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /
+ }   */
 
-.signup-container {
+ .signup-container {
     max-width: 400px;
     margin: auto;
     padding: 20px;
@@ -8,16 +18,40 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
   }
+   .signup-container  .text-center{
+line-height:100px ;
+background: #55c57a;
+padding-left: 20px;
+border-radius: 10px 10px 10px 10px;
+font-size: 25px;
+font-weight: 600;
+color:#fff
+
+  }
   
-  h2 {
+   h2 {
     text-align: center;
     color: #333;
   }
-  
+   
   .form-group {
     margin-bottom: 15px;
+    position: relative;
   }
-  
+
+.icon{
+  position: absolute;
+  width: 45px;
+  height: 100%;
+  color: #fff;
+  font-size: 16px;
+  background: #55c57a;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
   label {
     display: block;
     font-weight: bold;
@@ -31,21 +65,25 @@
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding-left:60px ;
   }
   
   button {
-    width: 100%;
+    width: 45%;
     padding: 12px;
     color: #fff;
-    background-color: #3498db;
+    background-color: #55c57a;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block;
+    margin: auto;
   }
   
   button:hover {
-    background-color: #2980b9;
-  }
+    background-color: #2bad32
+    ;
+  } 
   
   .error-message {
     color: #e74c3c;
