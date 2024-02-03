@@ -152,6 +152,9 @@ footer {
         flex-direction: column;
         justify-content: center;
     }
+    .colOne {
+        text-align: center;
+    }
 }   
 /* @media only screen and (max-width: 959px) { */
 
