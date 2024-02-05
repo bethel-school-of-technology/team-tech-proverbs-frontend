@@ -69,6 +69,107 @@ nav {
 .unknown {
     position: relative;
 }
+.menu-content {
+    width: 100%;
+    text-align: center;
+}
+ul {
+    padding: 10px;
+}
+li {
+    margin: 10px;
+    list-style: none;
+    font-weight: bold;
+}
+footer {
+    background-color: #000000;
+}
+.socila-media {
+    text-align: center;
+    color: white;
+}
+.logos {
+    padding: 20px;
+}
+.logos svg{
+    margin: 10px;
+    width: 25px;
+    color: white;
+}
+.reviews svg{
+    margin: 10px;
+    width: 25px;
+    color: white;
+}
+.main-footer {
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+}
+.lastFooter {
+    margin-top: 20px;
+    padding-bottom: 30px;
+    text-align: center;
+    color: white;
+}
+
+@media only screen and (max-width: 959px) {
+    nav {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    .nav-logo {
+        width: 70%;
+    }
+    .nav-logo .logoImg {
+        width: 30%;
+        text-align: right;
+        padding-left: 20px;
+    }
+    .nav-logo .logoImg img {
+        width: 92%;
+        height: 100%;
+    }
+    .text {
+        width: 70%;
+        margin-top: 25px;
+        text-align: left;
+    }
+    .mobile {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .mobile svg {
+        width: 20%;
+        margin: 20px;
+        background-color: aliceblue;
+    }
+    .main-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .colOne {
+        text-align: center;
+    }
+}   
+/* @media only screen and (max-width: 959px) { */
+
+.mobile {
+    width: 30px;
+    background-color: aliceblue;
+}
+.icons {
+    color: grey;
+    top: 20px;
+    right: 20px;
+}
+.unknown {
+    position: relative;
+}
 
 @media only screen and (max-width: 959px) {
     nav {

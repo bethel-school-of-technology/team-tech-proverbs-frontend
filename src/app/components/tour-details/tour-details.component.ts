@@ -26,7 +26,6 @@ export class TourDetailsComponent implements OnInit {
     this.tourService.getTourById(id).subscribe((response) => {
       this.tour = response;
       this.tourLocations = JSON.stringify(this.tour.locations);
-      console.log(this.tour.locations);
       // Call map setup logic only after fetching tour data
       this.setupMap();
     });
@@ -34,12 +33,7 @@ export class TourDetailsComponent implements OnInit {
 
   setupMap(): void {
     const locations = this.tour.locations;
-
-    if (!locations || locations.length === 0) {
-      console.error('No locations available.');
-      return;
-    }
-
+    
     mapboxgl.accessToken =
       'pk.eyJ1IjoiaXNoa2V2MzIiLCJhIjoiY2xwdjcyZDEyMDI4dDJqbnVuZ3ZkODNyeSJ9.CYB_n3qPz5IJbRts7jNkdQ';
 
@@ -52,17 +46,9 @@ export class TourDetailsComponent implements OnInit {
     const bounds = new mapboxgl.LngLatBounds();
 
     locations.forEach((loc) => {
-      const el = document.createElement('div');
-      el.className = 'marker';
-
-      if (!Array.isArray(loc.coordinates) || loc.coordinates.length !== 2) {
-        console.error('Invalid coordinates:', loc.coordinates);
-        return;
-      }
-
+      
       new mapboxgl.Marker({
-        element: el,
-        anchor: 'bottom',
+        color: '#55c57a'
       })
         .setLngLat(loc.coordinates)
         .addTo(map);

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
 export class HomeComponent implements OnInit{
 
   TopTours: Tour[] = [];
+  TourList: Tour[] = [];
   path = "../../../assets/img/tours/";
 
   userEmail: string = '';
@@ -18,13 +19,10 @@ export class HomeComponent implements OnInit{
   constructor(private userservice: UserService, private TourService: TourService) {}
 
   ngOnInit(): void {
-    this.userservice.user$.subscribe((email) => {
-      this.userEmail = email;
-    });
     this.TourService.getAllTours().subscribe(response => {
+      this.TourList = response;
       this.TopTours = response.filter(tour => tour.ratingsAverage > 4.7);
-      console.log(this.TopTours.length);
-      // console.log(this.TopTours[8].ratingsAverage);
+      // console.log(this.TourList[0].locations[0].description);
     });
   }
 }
