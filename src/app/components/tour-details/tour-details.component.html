@@ -94,7 +94,7 @@
   </div>
 
   <div class="description-box">
-    <h2 class="heading-secondary ma-bt-lg">About {{tour.name}} tour</h2>
+    <h2 class="heading-secondary ma-bt-lg">About {{ tour.name }} tour</h2>
     <p class="description__text">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -137,13 +137,11 @@
       </div>
       <p class="reviews__text">{{ review.review }}</p>
       <div class="reviews__rating">
-        <svg
-          *ngFor="let star of [1, 2, 3, 4, 5]"
-          class="reviews__star"
-          [class.reviews__star--active]="review.rating >= star ? 'active' : 'inactive'"
-        >
-          <use xlink:href="/img/icons.svg#icon-star"></use>
-        </svg>
+        <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+          <svg class="reviews__star" [class.reviews__star--active]="review.rating >= star" [class.reviews__star--inactive]="review.rating < star">
+            <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
+          </svg>
+        </ng-container>        
       </div>
     </div>
   </div>
@@ -175,11 +173,11 @@
         <button class="btn btn--green span-all-rows" id="book-tour" [attr.data-tour-id]="tour.id">Book tour now!</button>
       </ng-container> -->
 
-      <ng-template #loginButton>
+      <!-- <ng-template #loginButton> -->
         <a class="btn btn--green span-all-rows" href="/login"
           >Log in to book tour</a
         >
-      </ng-template>
+      <!-- </ng-template> -->
     </div>
   </div>
 </section>

@@ -26,7 +26,6 @@ export class TourDetailsComponent implements OnInit {
     this.tourService.getTourById(id).subscribe((response) => {
       this.tour = response;
       this.tourLocations = JSON.stringify(this.tour.locations);
-      console.log(this.tour.locations);
       // Call map setup logic only after fetching tour data
       this.setupMap();
     });
@@ -34,35 +33,22 @@ export class TourDetailsComponent implements OnInit {
 
   setupMap(): void {
     const locations = this.tour.locations;
-
-    if (!locations || locations.length === 0) {
-      console.error('No locations available.');
-      return;
-    }
-
+    
     mapboxgl.accessToken =
-      'pk.eyJ1IjoiaXNoa2V2MzIiLCJhIjoiY2xwdjdqd2lqMDM0bTJqbHdzd3gyZzhjaSJ9.6mEuYfCw9lwaSa7nvErIAQ';
+      'pk.eyJ1IjoiaXNoa2V2MzIiLCJhIjoiY2xwdjcyZDEyMDI4dDJqbnVuZ3ZkODNyeSJ9.CYB_n3qPz5IJbRts7jNkdQ';
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/ishkev32/clpvaci5z01gp01p9f0f4cik8',
+      style: 'mapbox://styles/ishkev32/clrz81e1u005u01pa45re0s3u',
       scrollZoom: false,
     });
 
     const bounds = new mapboxgl.LngLatBounds();
 
     locations.forEach((loc) => {
-      const el = document.createElement('div');
-      el.className = 'marker';
-
-      if (!Array.isArray(loc.coordinates) || loc.coordinates.length !== 2) {
-        console.error('Invalid coordinates:', loc.coordinates);
-        return; // Skip this location
-      }
-
+      
       new mapboxgl.Marker({
-        element: el,
-        anchor: 'bottom',
+        color: '#55c57a'
       })
         .setLngLat(loc.coordinates)
         .addTo(map);

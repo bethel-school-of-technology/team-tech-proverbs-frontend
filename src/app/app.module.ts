@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +16,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HomeComponent } from './components/home/home.component';
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { TourDetailsComponent } from './components/tour-details/tour-details.com
     SignUpComponent,
     UserSigninComponent,
     TourDetailsComponent,
+    UserProfileComponent,
    
   ],
   imports: [
@@ -31,7 +34,8 @@ import { TourDetailsComponent } from './components/tour-details/tour-details.com
     AppRoutingModule,
     NoopAnimationsModule,
     MatCardModule, MatButtonModule,MatIconModule,
-    FormsModule
+    FormsModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -30,8 +30,7 @@ export class SignUpComponent implements OnInit {
         this.errorMessage = this.userService.handleHttpError({
           message: error,
         });
-        // console.log(error);
-        window.alert(this.errorMessage);
+        // window.alert(this.errorMessage);
         errorHandled = true;
       }
     };
@@ -41,10 +40,14 @@ export class SignUpComponent implements OnInit {
         if (response.success) {
           this.router.navigate(['/tours']);
         } else {
+          console.log(String(response));
           handleRegistrationError(response);
         }
       },
       (error) => {
+        console.log(error.error.message);
+        // this.errorMessage = error.error.message;
+        // alert(error.error.message);
         handleRegistrationError(error);
       }
     );
