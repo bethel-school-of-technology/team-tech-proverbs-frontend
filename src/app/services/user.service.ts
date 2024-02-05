@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
@@ -12,10 +12,35 @@ export class UserService {
 
 
   constructor(private http : HttpClient) { }
-
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error);
-    return Promise.reject(error.message || error);
+  private handleError(error: any): string {
+    
+    // Check if the error is an HttpErrorResponse
+    if (error instanceof HttpErrorResponse) {
+      console.error('An error occurred', error);
+      let errorMessage = 'Unknown error occurred';
+      
+      // If there's a custom error message in the response body, use that
+      if (error.error && error.error.message) {
+        errorMessage = error.error.message;
+      } else if (error.message) {
+        // If not, use the default error message from the HttpErrorResponse
+        errorMessage = error.error.message;
+      }
+  
+      // Display the error message in the console
+      console.log(errorMessage);
+      
+      // window.alert(errorMessage)
+      // Return the error message
+      return errorMessage;
+    }
+  
+    // If it's not an HttpErrorResponse, return the original error message
+    return error.message || 'Unknown error occurred';
+  }
+  
+  public handleHttpError(error: any): string {
+    return this.handleError(error);
   }
 
   private userSubject = new BehaviorSubject<string>('');
