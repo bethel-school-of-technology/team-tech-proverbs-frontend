@@ -30,7 +30,7 @@ export class UserService {
   updateUserData(userData: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .patch<any>(`${this.Url}/profile`, userData, { headers }) // Adjust endpoint as per your backend API
+      .patch<any>(`${this.Url}/profile`, userData, { headers }) 
       .pipe(catchError(this.handleError));
   }
 
@@ -38,7 +38,7 @@ export class UserService {
     const formData: FormData = new FormData();
     formData.append('photo', photo);
     return this.http
-      .post<any>(`${this.Url}/uploadPhoto`, formData) // Adjust endpoint as per your backend API
+      .post<any>(`${this.Url}/uploadPhoto`, formData) 
       .pipe(catchError(this.handleError));
   }
   private handleError(error: any): string {
