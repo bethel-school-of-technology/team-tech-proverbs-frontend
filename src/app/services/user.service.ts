@@ -70,10 +70,9 @@ export class UserService {
   }
   
   public handleHttpError(error: any): any {
-    console.log(error);
-    const errorText = this.handleError(error);
-    console.log(errorText);
-    return errorText;
+    console.error(error);
+  
+    return this.handleError(error);
   }
 
   private userSubject = new BehaviorSubject<string>('');
