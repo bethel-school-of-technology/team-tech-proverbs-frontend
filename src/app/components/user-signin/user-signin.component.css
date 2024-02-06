@@ -8,34 +8,42 @@
     height: 100vh; 
   } */
 
-  /* .form-control{
+/* .form-control{
     border: 1px solid skyblue;
   } */
-
-
-.signin-container {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
+.main {
+  background-color: #f7f7f7;
+  padding: 5rem 6rem;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  position: relative;
 }
 
-.signin-container  .text-center{
-  line-height:100px ;
+.signin-container {
+  max-width: 550px;
+  margin: auto;
+  padding: 50px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+  text-align: center;
+  margin-bottom: 160px;
+}
+
+.signin-container .text-center {
+  line-height: 100px;
   background: #55c57a;
   padding-left: 20px;
   border-radius: 10px 10px 10px 10px;
   font-size: 25px;
   font-weight: 600;
-  color:#fff
-  
-    }
+  color: #fff;
+}
 
 h2 {
   text-align: center;
-  color: #333;
+  font-size: 2.3rem;
 }
 
 .form-group {
@@ -43,7 +51,7 @@ h2 {
   position: relative;
 }
 
-.icon{
+.icon {
   position: absolute;
   width: 45px;
   height: 100%;
@@ -54,7 +62,6 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 label {
@@ -70,7 +77,7 @@ input {
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
-  padding-left:60px ;
+  padding-left: 60px;
 }
 
 button {
@@ -86,10 +93,23 @@ button {
 }
 
 button:hover {
-  background-color: #2bad32
-  ;
-} 
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
 
+button:active {
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+button:focus {
+  outline: none;
+  background-color: #2e864b;
+}
 .error-message {
   color: #e74c3c;
   margin-top: 10px;
@@ -103,3 +123,6 @@ button:hover {
   }
 }
 
+.signup-link {
+  margin-top: 20px;
+}

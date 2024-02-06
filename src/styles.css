@@ -215,6 +215,13 @@ body {
 .btn--green::after {
   background-color: #55c57a;
 }
+.btn--black {
+  background-color: black;
+  color: white;
+}
+.btn--black::after {
+  background-color: white;
+}
 
 .btn--small {
   padding: 1.25rem 3rem !important;
