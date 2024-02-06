@@ -38,16 +38,13 @@ export class SignUpComponent implements OnInit {
     this.userService.register(this.user).subscribe(
       (response) => {
 
-
+        console.log('User Registered Success Full', response);
       
-        if(response.success) {
-          console.log('User Registered Success Full', response);
+        this.userService.register(response.data.user.any);
+         
           this.router.navigate(['/tours']);
-        } 
-        // else {
-        //   console.log(String(response));
-        //   handleRegistrationError(response);  
-        // }
+        
+
       },
       (error) => {
         console.error(error.error.message);
