@@ -8,7 +8,7 @@ import { Component,  } from '@angular/core';
 export class AppComponent {
   title = 'FinalProject';
   isMenuOpen = false;
-  loggedIn: boolean = true;
+  loggedIn: boolean = false;
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;

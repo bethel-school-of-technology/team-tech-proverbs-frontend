@@ -13,8 +13,9 @@
     <a routerLink="contact">Contacts</a>
   </div>
   <div class="nav-signIN eii" fxHide.lt-md>
-    <Button class="btn btn--green btn--small" routerLink="/signup">Sign Up</Button>
-    <Button class="btn btn--black btn--small" routerLink="/login">Sign In</Button>
+    <Button *ngIf="!loggedIn" class="btn btn--green btn--small" routerLink="/signup">Sign Up</Button>
+    <Button *ngIf="!loggedIn" class="btn btn--black btn--small" routerLink="/login">Sign In</Button>
+    <Button *ngIf="loggedIn" class="btn btn--black btn--small" routerLink="/profile">Profile</Button>
   </div>
   <div class="mobile" fxHide.gt-sm (click)="toggleMenu()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -30,7 +31,7 @@
     <li>CONTACTS</li>
     <li routerLink="login" *ngIf="!loggedIn">SIGNIN</li>
     <li routerLink="signup" *ngIf="!loggedIn">SIGNUP</li>
-    <li *ngIf="loggedIn">Profile</li>
+    <li *ngIf="loggedIn" routerLink="profile">Profile</li>
   </ul>
 </div>
 <router-outlet></router-outlet>
