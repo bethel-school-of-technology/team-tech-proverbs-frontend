@@ -39,15 +39,16 @@ export class SignUpComponent implements OnInit {
       (response) => {
         if (response.success) {
           this.router.navigate(['/login']);
-        } else {
-          console.log(String(response));
-          handleRegistrationError(response);
-        }
+        } 
+        // else {
+        //   console.log(String(response));
+        //   handleRegistrationError(response);
+        // }
       },
       (error) => {
         console.log(error.error.message);
-        this.errorMessage = error.error.message;
-        // alert(error.error.message);
+        // this.errorMessage = error.error.message;
+        alert(error.error.message);
         handleRegistrationError(error);
       }
     );
