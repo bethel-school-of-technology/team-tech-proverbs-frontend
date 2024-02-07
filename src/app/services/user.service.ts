@@ -10,7 +10,7 @@ import { User } from '../model/user';
 export class UserService {
 
   Url = "http://127.0.0.1:3004/api/v1/users";
-  private tokenName: string = 'myFinalProjectToken';
+  private tokenName: string = 'jwt';
 
   private _isloggedIn = new BehaviorSubject(false);
   isloggedIn = this._isloggedIn.asObservable();
@@ -106,8 +106,7 @@ export class UserService {
     return this.http
       .post<any>(`${this.Url}/login`, credentials, { headers })
       .pipe(tap((response: any) => {
-        localStorage.setItem(this.tokenName, response);
-
+        localStorage.setItem(this.tokenName, JSON.stringify(response));
         if (response) {
           this._isloggedIn.next(true);
         }
@@ -167,8 +166,7 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  getCurrentUser():Observable<User>
-  {
+  getCurrentUser():Observable<User>{
     let reqHeaders = {
       Authorization : `Bearer ${localStorage.getItem(this.tokenName)}`
     }
