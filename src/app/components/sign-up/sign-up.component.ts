@@ -37,7 +37,11 @@ export class SignUpComponent implements OnInit {
 
     this.userService.register(this.user).subscribe(
       (response) => {
+
+       
+      
         this.userService.register(response.data.user.any);
+        window.alert ("User Registration Successful");
         console.log('User Registered Success Full', response);
           this.router.navigate(['/tours']);
         
