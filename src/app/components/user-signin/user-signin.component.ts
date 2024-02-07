@@ -9,18 +9,20 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserSigninComponent {
 
-   email: string = "";
-   password: string = "";
+   credentials= {
+    email: "",
+   password: ""
+  }
  errorMessage: string = '';
  constructor(private userservice : UserService, private router: Router)
  {}
  onSubmit(){
-  this.userservice.login(this.email,this.password).subscribe(
+  this.userservice.login(this.credentials).subscribe(
     (response) => 
     {
-      console.log('logged in successfully', response);
+      console.log('logged in successfully', response.data);
       this.userservice.setUserEmail(response.data.user.email);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/profile']);
     },
     (error) => {
       console.error('Logged in Fail', error);
