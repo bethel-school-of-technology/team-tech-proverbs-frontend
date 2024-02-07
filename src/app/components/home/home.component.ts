@@ -10,7 +10,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class HomeComponent implements OnInit {
   TopTours: Tour[] = [];
-  path = '../../../assets/img/tours/';
+  TourList: Tour[] = [];
+  path = "../../../assets/img/tours/";
 
   userEmail: string = '';
   isLoggedIn: boolean = false;
@@ -21,13 +22,10 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.userservice.user$.subscribe((email) => {
-      this.userEmail = email;
-    });
-    this.TourService.getAllTours().subscribe((response) => {
-      this.TopTours = response.filter((tour) => tour.ratingsAverage > 4.7);
-      console.log(this.TopTours.length);
-      // console.log(this.TopTours[8].ratingsAverage);
+    this.TourService.getAllTours().subscribe(response => {
+      this.TourList = response;
+      this.TopTours = response.filter(tour => tour.ratingsAverage > 4.7);
+      // console.log(this.TourList[0].locations[0].description);
     });
   }
 }

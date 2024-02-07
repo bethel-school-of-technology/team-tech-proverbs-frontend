@@ -98,9 +98,9 @@ export class TourDetailsComponent implements OnInit {
           }
         });
       },
-      (error) => {
-        console.error('Error creating checkout session:', error);
-      }
+      // (error) => {
+      //   console.error('Error creating checkout session:', error);
+      // }
     );
   }
 }

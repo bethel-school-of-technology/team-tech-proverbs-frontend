@@ -1,45 +1,55 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  styleUrls: ['./sign-up.component.css'],
 })
-export class SignUpComponent implements OnInit{
-
+export class SignUpComponent implements OnInit {
   user = {
     name: '',
     email: '',
     password: '',
-    passwordConfirm: ''
+    passwordConfirm: '',
   };
   errorMessage: string = '';
-  
-  constructor(private userservice :UserService, private router: Router){}
 
-  
-  ngOnInit(): void {
-    
-  }
+  constructor(private userService: UserService, private router: Router) {}
+
+  ngOnInit(): void {}
 
   onSubmit() {
-    this.userservice.register(this.user).subscribe(
+    let errorHandled = false;
+
+    const handleRegistrationError = (error: any) => {
+      if (!errorHandled) {
+        // Extract the error message using the handleError method
+        // this.errorMessage = this.userService.handleHttpError(error);
+        this.errorMessage = this.userService.handleHttpError({
+          message: error,
+        });
+        // window.alert(this.errorMessage);
+        errorHandled = true;
+      }
+    };
+
+    this.userService.register(this.user).subscribe(
       (response) => {
-        console.log('User registered successfully', response);
-        this.router.navigate(['/tours']); 
+        this.userService.register(response.data.user.any);
+        window.alert('User Signup successfull, Try to login')
+        console.log('User Registered Successfull', response);
+          this.router.navigate(['/login']);
+        
+
       },
       (error) => {
-        console.error('Error registering user', error);
-
-        if (error.status === 500 && error.error.message.includes('Password validation')) {
-          this.errorMessage = 'An unexpected error occurred.';
-        } else {
-          this.errorMessage = 'Password must be at least 6 characters.';
-        }
+        console.error(error.error.message);
+        // this.errorMessage = error.error.message;
+        alert(error.error.message);
+        handleRegistrationError(error);
       }
     );
   }
-
 }
