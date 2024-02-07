@@ -8,9 +8,14 @@ import { Component,  } from '@angular/core';
 export class AppComponent {
   title = 'FinalProject';
   isMenuOpen = false;
-  loggedIn: boolean = true;
+  isLoggedIn: boolean = false;
+  
 
   toggleMenu() {
+    const token = localStorage.getItem('currentUser');
+    if(token) {
+      this.isLoggedIn = true;
+    }
     this.isMenuOpen = !this.isMenuOpen;
     // console.log(this.isMenuOpen);
   }

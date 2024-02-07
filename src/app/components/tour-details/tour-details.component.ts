@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Tour } from 'src/app/model/tour';
 import { TourService } from 'src/app/services/tour.service';
 import { BookingService } from 'src/app/services/booking.service';
+
 import { environment } from 'src/environments/environment';
 
 // Declare mapboxgl as a global variable
@@ -17,11 +18,13 @@ declare const Stripe: any;
 export class TourDetailsComponent implements OnInit {
   tour: Tour = new Tour();
   tourLocations: string = '';
+  isLoggedIn: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private tourService: TourService,
-    private bookingService: BookingService
+    private bookingService: BookingService,
+
   ) {}
 
   ngOnInit(): void {

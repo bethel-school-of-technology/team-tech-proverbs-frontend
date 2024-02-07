@@ -5,14 +5,12 @@ import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  Url = 'http://127.0.0.1:3004/api/v1/users';
 
-  Url = "http://127.0.0.1:3004/api/v1/users";
-
-
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getUserById(userId: string): Observable<any> {
     const userUrl = `${this.Url}/${userId}`;
@@ -22,7 +20,7 @@ export class UserService {
         const users = response.data ? response.data.data : null;
 
         // Assuming your Tour model has properties like startLocation, ratingsAverage, etc.
-        return users? new User(users) : null;
+        return users ? new User(users) : null;
       })
     );
   }
@@ -49,8 +47,7 @@ export class UserService {
 
   private userSubject = new BehaviorSubject<string>('');
   user$ = this.userSubject.asObservable();
-  setUserEmail(email : string)
-  {
+  setUserEmail(email: string) {
     this.userSubject.next(email);
   }
 
@@ -61,12 +58,21 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  
-  login(credentials: any): Observable<any> {
+  login(email: string, password: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .post<any>(`${this.Url}/login`, credentials, { headers })
-      .pipe(catchError(this.handleError));
+      .post<any>(`${this.Url}/login`, { email, password }, { headers })
+      .pipe(
+        map((response) => {
+          // Login successful if there's a jwt token in the response
+          if (response && response.token) {
+            // Store user details and jwt token in local storage to keep user logged in between page refreshes
+            localStorage.setItem('currentUser', response.token);
+          }
+          return response;
+        }),
+        catchError(this.handleError)
+      );
   }
 
   // Method to log out a user
@@ -80,11 +86,7 @@ export class UserService {
   requestPasswordReset(email: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .post<any>(
-        `${this.Url}/forgotPassword`,
-        { email },
-        { headers }
-      )
+      .post<any>(`${this.Url}/forgotPassword`, { email }, { headers })
       .pipe(catchError(this.handleError));
   }
 
