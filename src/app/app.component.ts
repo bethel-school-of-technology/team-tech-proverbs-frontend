@@ -12,8 +12,6 @@ export class AppComponent implements OnInit{
   title = 'FinalProject';
   isMenuOpen = false;
   isloggedIn: boolean = false;
-  username? = '';
-  jwtString = localStorage.getItem('jwt');
   currentUser: any;
 
   constructor(private uservice: UserService, private router:Router){}
@@ -27,21 +25,17 @@ export class AppComponent implements OnInit{
     // console.log(this.isMenuOpen);
   }
   ngOnInit(): void {
-    
-    if(this.jwtString !== null) {
-      const response = JSON.parse(this.jwtString);
-      this.currentUser = response.data.user;
-      // console.log(this.currentUser);
-    }
 
     this.uservice.isloggedIn.subscribe(loggedIn => {
       this.isloggedIn = loggedIn;
-      if (loggedIn)
-      {
-        this.uservice.getCurrentUser().subscribe(user => {
-          this.username = user.name;
-          console.log(this.username);
-        });
+      if(loggedIn) {
+        const jwtString = localStorage.getItem('jwt');
+        if(jwtString !== null) {
+            const response = JSON.parse(jwtString);
+            this.currentUser = response.data.user;
+          } else {
+            this.currentUser;
+          }
       }
     });
   }
@@ -49,5 +43,5 @@ export class AppComponent implements OnInit{
   logout() {
     this.uservice.logout();
     this.router.navigate(['/']);
-}
+  }
 }
