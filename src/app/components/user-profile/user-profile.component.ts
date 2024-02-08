@@ -26,7 +26,7 @@ export class UserProfileComponent implements OnInit {
   ngOnInit(): void {
     this.uservice.isloggedIn.subscribe(loggedIn => {
       this.isloggedIn = loggedIn;
-      if (loggedIn) {
+      if(loggedIn) {
         const jwtString = localStorage.getItem('jwt');
         if (jwtString !== null) {
           const response = JSON.parse(jwtString);

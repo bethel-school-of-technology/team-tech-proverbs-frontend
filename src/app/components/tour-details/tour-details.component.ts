@@ -20,7 +20,10 @@ export class TourDetailsComponent implements OnInit {
   tour: Tour = new Tour();
   tourLocations: string = '';
   isLoggedIn: boolean = false;
-  token: string | null = null;
+  token: any;
+
+  isloggedIn: boolean = false;
+  currentUser: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -41,19 +44,18 @@ export class TourDetailsComponent implements OnInit {
     if (this.userService.isloggedIn) {
       this.isLoggedIn = true;
     }
-
-    this.userService.isloggedIn.subscribe((isLoggedIn) => {
-      this.isLoggedIn = isLoggedIn;
-      if (isLoggedIn) {
-        this.userService.getCurrentUser().subscribe(
-          (response) => {
-            console.log(response);
-            this.token = response.token;
-          },
-          (error) => {
-            console.error('Error getting current user:', error);
-          }
-        );
+    //chris
+    this.userService.isloggedIn.subscribe((loggedIn) => {
+      this.isloggedIn = loggedIn;
+      if (loggedIn) {
+        const jwtString = localStorage.getItem('jwt');
+        if (jwtString !== null) {
+          const response = JSON.parse(jwtString);
+          this.currentUser = response.data.user;
+          this.token = response.token;
+        } else {
+          this.currentUser;
+        }
       }
     });
   }
