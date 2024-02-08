@@ -26,7 +26,7 @@ export class SignUpComponent implements OnInit {
     const handleRegistrationError = (error: any) => {
       if (!errorHandled) {
         // Extract the error message using the handleError method
-        // this.errorMessage = this.userService.handleHttpError(error);
+        this.errorMessage = this.userService.handleHttpError(error);
         this.errorMessage = this.userService.handleHttpError({
           message: error,
         });
@@ -46,7 +46,7 @@ export class SignUpComponent implements OnInit {
       },
       (error) => {
         console.error(error.error.message);
-        // this.errorMessage = error.error.message;
+        this.errorMessage = error.error.message;
         alert(error.error.message);
         handleRegistrationError(error);
       }

@@ -1,6 +1,6 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map } from 'rxjs';
+import { Observable, catchError, map, tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/user';
 
@@ -10,9 +10,17 @@ import { User } from '../model/user';
 export class UserService {
 
   Url = "http://127.0.0.1:3004/api/v1/users";
+  private tokenName: string = 'jwt';
 
+  private _isloggedIn = new BehaviorSubject(false);
+  isloggedIn = this._isloggedIn.asObservable();
 
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {
+    if (localStorage.getItem(this.tokenName))
+    {
+      this._isloggedIn.next(true);
+    }
+   }
 
   getUserById(userId: string): Observable<any> {
     const userUrl = `${this.Url}/${userId}`;
@@ -91,19 +99,34 @@ export class UserService {
 
   
   login(credentials: any): Observable<any> {
+    let querryParams = new HttpParams();
+    querryParams = querryParams.append('credentials', credentials);
+
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
       .post<any>(`${this.Url}/login`, credentials, { headers })
-      .pipe(catchError(this.handleError));
+      .pipe(tap((response: any) => {
+        localStorage.setItem(this.tokenName, JSON.stringify(response));
+        if (response) {
+          this._isloggedIn.next(true);
+        }
+        else {
+            this._isloggedIn.next(false);
+        }
+    }));
   }
 
   // Method to log out a user
-  logout(): Observable<any> {
+  signout(): Observable<any> {
     return this.http
       .get<any>(`${this.Url}/logout`)
       .pipe(catchError(this.handleError));
   }
 
+  logout() {
+    localStorage.removeItem(this.tokenName);
+    this._isloggedIn.next(false);
+  }
   // Method to request a password reset
   requestPasswordReset(email: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
@@ -141,5 +164,12 @@ export class UserService {
         { headers }
       )
       .pipe(catchError(this.handleError));
+  }
+
+  getCurrentUser():Observable<User>{
+    let reqHeaders = {
+      Authorization : `Bearer ${localStorage.getItem(this.tokenName)}`
+    }
+    return this.http.get<User>(`${this.Url}/me`)
   }
 }

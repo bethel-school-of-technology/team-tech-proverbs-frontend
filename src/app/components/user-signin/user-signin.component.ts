@@ -22,7 +22,7 @@ export class UserSigninComponent {
     {
       console.log('logged in successfully', response);
       this.userservice.setUserEmail(response.data.user.email);
-      this.router.navigate(['/home']);
+      this.router.navigate(['/profile']);
     },
     (error) => {
       console.error('Logged in Fail', error);
