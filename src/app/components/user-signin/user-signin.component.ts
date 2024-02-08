@@ -20,7 +20,7 @@ export class UserSigninComponent {
   this.userservice.login(this.credentials).subscribe(
     (response) => 
     {
-      console.log('logged in successfully', response.data);
+      // console.log('logged in successfully', response.data);
       this.userservice.setUserEmail(response.data.user.email);
       this.router.navigate(['/profile']);
     },

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,8 +10,9 @@ export class BookingService {
 
   constructor(private http: HttpClient) {}
 
-  createCheckoutSession(tourId: string): Observable<any> {
-    return this.http.get<any>(`http://127.0.0.1:3004/api/v1/bookings/checkout-session/${tourId}`);
+  createCheckoutSession(tourId: string, token: string): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(`${this.baseUrl}checkout-session/${tourId}`, { headers });
   }
 
   createBooking(bookingData: any): Observable<any> {
