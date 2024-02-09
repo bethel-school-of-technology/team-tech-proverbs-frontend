@@ -9,10 +9,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserSigninComponent {
 
- credentials = {
-  email:'',
-  password: ''
- }
+   credentials= {
+    email: "",
+   password: ""
+  }
  errorMessage: string = '';
  constructor(private userservice : UserService, private router: Router)
  {}
@@ -20,7 +20,7 @@ export class UserSigninComponent {
   this.userservice.login(this.credentials).subscribe(
     (response) => 
     {
-      console.log('logged in successfully', response);
+      // console.log('logged in successfully', response.data);
       this.userservice.setUserEmail(response.data.user.email);
       this.router.navigate(['/profile']);
     },
@@ -35,5 +35,6 @@ export class UserSigninComponent {
       }
     }
   );
+  
  }
 }

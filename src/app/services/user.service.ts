@@ -1,26 +1,29 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpHeaders,
+  HttpParams,
+} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/user';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
-  Url = "http://127.0.0.1:3004/api/v1/users";
+  Url = 'http://127.0.0.1:3004/api/v1/users';
   private tokenName: string = 'jwt';
 
   private _isloggedIn = new BehaviorSubject(false);
   isloggedIn = this._isloggedIn.asObservable();
 
-  constructor(private http : HttpClient) {
-    if (localStorage.getItem(this.tokenName))
-    {
+  constructor(private http: HttpClient) {
+    if (localStorage.getItem(this.tokenName)) {
       this._isloggedIn.next(true);
     }
-   }
+  }
 
   getUserById(userId: string): Observable<any> {
     const userUrl = `${this.Url}/${userId}`;
@@ -30,7 +33,7 @@ export class UserService {
         const users = response.data ? response.data.data : null;
 
         // Assuming your Tour model has properties like startLocation, ratingsAverage, etc.
-        return users? new User(users) : null;
+        return users ? new User(users) : null;
       })
     );
   }
@@ -38,7 +41,7 @@ export class UserService {
   updateUserData(userData: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .patch<any>(`${this.Url}/profile`, userData, { headers }) 
+      .patch<any>(`${this.Url}/profile`, userData, { headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -46,16 +49,15 @@ export class UserService {
     const formData: FormData = new FormData();
     formData.append('photo', photo);
     return this.http
-      .post<any>(`${this.Url}/uploadPhoto`, formData) 
+      .post<any>(`${this.Url}/uploadPhoto`, formData)
       .pipe(catchError(this.handleError));
   }
   private handleError(error: any): string {
-    
     // Check if the error is an HttpErrorResponse
     if (error instanceof HttpErrorResponse) {
       console.error('An error occurred', error);
       let errorMessage = 'Unknown error occurred';
-      
+
       // If there's a custom error message in the response body, use that
       if (error.error && error.error.message) {
         errorMessage = error.error.message;
@@ -63,30 +65,29 @@ export class UserService {
         // If not, use the default error message from the HttpErrorResponse
         errorMessage = error.error.message;
       }
-  
+
       // Display the error message in the console
       console.log(errorMessage);
       alert(errorMessage);
-      
+
       // window.alert(errorMessage)
       // Return the error message
       return errorMessage;
     }
-  
+
     // If it's not an HttpErrorResponse, return the original error message
     return error.message || 'Unknown error occurred';
   }
-  
+
   public handleHttpError(error: any): any {
     console.error(error);
-  
+
     return this.handleError(error);
   }
 
   private userSubject = new BehaviorSubject<string>('');
   user$ = this.userSubject.asObservable();
-  setUserEmail(email : string)
-  {
+  setUserEmail(email: string) {
     this.userSubject.next(email);
   }
 
@@ -97,7 +98,6 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  
   login(credentials: any): Observable<any> {
     let querryParams = new HttpParams();
     querryParams = querryParams.append('credentials', credentials);
@@ -105,15 +105,16 @@ export class UserService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
       .post<any>(`${this.Url}/login`, credentials, { headers })
-      .pipe(tap((response: any) => {
-        localStorage.setItem(this.tokenName, JSON.stringify(response));
-        if (response) {
-          this._isloggedIn.next(true);
-        }
-        else {
+      .pipe(
+        tap((response: any) => {
+          localStorage.setItem(this.tokenName, JSON.stringify(response));
+          if (response) {
+            this._isloggedIn.next(true);
+          } else {
             this._isloggedIn.next(false);
-        }
-    }));
+          }
+        })
+      );
   }
 
   // Method to log out a user
@@ -131,11 +132,7 @@ export class UserService {
   requestPasswordReset(email: string): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
-      .post<any>(
-        `${this.Url}/forgotPassword`,
-        { email },
-        { headers }
-      )
+      .post<any>(`${this.Url}/forgotPassword`, { email }, { headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -166,10 +163,26 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  getCurrentUser():Observable<User>{
-    let reqHeaders = {
-      Authorization : `Bearer ${localStorage.getItem(this.tokenName)}`
-    }
-    return this.http.get<User>(`${this.Url}/me`)
+  // getCurrentUser(): Observable<User> {
+  //   const reqHeaders = new HttpHeaders({
+  //     Authorization: `Bearer ${localStorage.getItem(this.tokenName)}`
+  //   });
+
+  //   return this.http.get<User>(`${this.Url}/me`, { headers: reqHeaders });
+  // }
+  getCurrentUser(): Observable<any> {
+     let reqHeaders = localStorage.getItem(this.tokenName)
+    console.log(reqHeaders)
+    
+    // this.tokenName = reqHeaders.token
+    return this.http.get<any>(`${this.Url}/me`).pipe(
+      map((response) => {
+        // console.log(response);
+        return {
+          ...response,
+          token: localStorage.getItem(this.tokenName) // Assuming the token is stored in localStorage
+        };
+      })
+    );
   }
 }

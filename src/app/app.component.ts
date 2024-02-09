@@ -17,6 +17,10 @@ export class AppComponent implements OnInit{
   constructor(private uservice: UserService, private router:Router){}
 
   toggleMenu() {
+    const token = localStorage.getItem('currentUser');
+    if(token) {
+      this.isloggedIn = true;
+    }
     this.isMenuOpen = !this.isMenuOpen;
     // console.log(this.isMenuOpen);
   }
