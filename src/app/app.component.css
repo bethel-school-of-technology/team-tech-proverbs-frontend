@@ -112,6 +112,22 @@ footer {
     text-align: center;
     color: white;
 }
+.profile {
+    background-color: #2e864b;
+    padding: 10PX;
+    border-radius: 20px;
+    margin-right: 5px;
+    width: 40px;
+}
+.nav-prof {
+    cursor: pointer;
+    /* width: 200px; */
+    border-radius: 10PX;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
 
 @media only screen and (max-width: 959px) {
     nav {

@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Tour } from 'src/app/model/tour';
 import { TourService } from 'src/app/services/tour.service';
 import { UserService } from 'src/app/services/user.service';
@@ -6,17 +6,20 @@ import { UserService } from 'src/app/services/user.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
-export class HomeComponent implements OnInit{
-
+export class HomeComponent implements OnInit {
   TopTours: Tour[] = [];
   TourList: Tour[] = [];
   path = "../../../assets/img/tours/";
 
   userEmail: string = '';
+  isLoggedIn: boolean = false;
 
-  constructor(private userservice: UserService, private TourService: TourService) {}
+  constructor(
+    private userservice: UserService,
+    private TourService: TourService
+  ) {}
 
   ngOnInit(): void {
     this.TourService.getAllTours().subscribe(response => {
