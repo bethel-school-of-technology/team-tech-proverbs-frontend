@@ -10,7 +10,7 @@
   <div class="nav-links" fxHide.lt-md>
     <a routerLink="home">Home</a>
     <a routerLink="tours">Tours</a>
-    <a routerLink="contact">Contacts</a>
+    <a routerLink="aboutus">About Us</a>
   </div>
   <div class="nav-signIN" fxHide.lt-md>
     <Button class="btn btn--green btn--small eii" routerLink="/signup">Sign Up</Button>
@@ -27,7 +27,7 @@
   <ul (click)="toggleMenu()">
     <li routerLink="home">HOME</li>
     <li routerLink="tours">TOURS</li>
-    <li>CONTACTS</li>
+    <li routerLink="aboutus">About Us</li>
     <li routerLink="login" *ngIf="!loggedIn">SIGNIN</li>
     <li routerLink="signup" *ngIf="!loggedIn">SIGNUP</li>
     <li *ngIf="loggedIn">Profile</li>
