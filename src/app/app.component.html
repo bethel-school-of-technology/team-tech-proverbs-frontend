@@ -1,7 +1,7 @@
 <nav class="sm-12">
   <div class="nav-logo">
     <div class="logoImg">
-      <img src="../assets/img/logo.png">
+      <img src="../assets/img/logo.png" />
     </div>
     <div class="text">
       <h2>AwesomeTours</h2>
@@ -10,7 +10,7 @@
   <div class="nav-links" fxHide.lt-md>
     <a routerLink="home">Home</a>
     <a routerLink="tours">Tours</a>
-    <a routerLink="contact">Contacts</a>
+    <a routerLink="aboutus">About Us</a>
   </div>
   <div class="nav-signIN" fxHide.lt-md>
     <Button *ngIf="!isloggedIn" class="btn btn--green btn--small eii" routerLink="/signup">Sign Up</Button>
@@ -22,9 +22,19 @@
     </div>
   </div>
   <div class="mobile" fxHide.gt-sm (click)="toggleMenu()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-      class="icons">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="icons"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+      />
     </svg>
   </div>
 </nav>
@@ -32,10 +42,11 @@
   <ul (click)="toggleMenu()">
     <li routerLink="home">HOME</li>
     <li routerLink="tours">TOURS</li>
-    <li>CONTACTS</li>
+    <li routerLink="aboutus">About Us</li>
     <li routerLink="login" *ngIf="!isloggedIn">SIGNIN</li>
     <li routerLink="signup" *ngIf="!isloggedIn">SIGNUP</li>
     <li *ngIf="isloggedIn" routerLink="profile">PROFILE</li>
+
   </ul>
 </div>
 
