@@ -7,6 +7,7 @@ import { UserSigninComponent } from './components/user-signin/user-signin.compon
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuardCheck } from './services/auth-guard-check.service';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "signup", component: SignUpComponent},
   {path: "login", component: UserSigninComponent},
+  {path: "aboutus", component: AboutUsComponent},
   {path: "profile", component: UserProfileComponent, canActivate: [AuthGuardCheck]},
   {path: "tourDetails/:id", component: TourDetailsComponent},
   // {path: "**", component: HomeComponent}

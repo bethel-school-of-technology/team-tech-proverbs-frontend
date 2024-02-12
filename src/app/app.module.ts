@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     UserSigninComponent,
     TourDetailsComponent,
     UserProfileComponent,
+    AboutUsComponent,
    
   ],
   imports: [
