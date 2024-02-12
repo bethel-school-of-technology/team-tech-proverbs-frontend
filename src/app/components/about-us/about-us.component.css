@@ -1,0 +1,47 @@
+*{
+  font-family:sans-serif;
+}
+
+ .text{
+    width:550px;
+    max-width: 100%;
+    padding:0 10px;
+    font-size:15px;
+
+  }
+  .content{
+width:1280px;
+max-width:95%;
+margin:0 auto;
+
+  }
+  .title{
+    font-size:50px;
+    margin-bottom: 20px;
+
+  }
+.data{
+  color:#55c57a;
+  display:flex;
+  justify-content: space-around;
+  align-items:center;
+
+}
+  .girlImg{
+    height: 300;
+    width: 300px;
+    max-width:100%;
+    border-radius: 50%;
+    float: right;
+    
+
+  }
+  .boyImg{
+    height: 300;
+    width:  400px;
+    max-width:100%;
+    border-radius: 50%;
+    float: right;
+
+  }
+ 
