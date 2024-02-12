@@ -78,8 +78,10 @@
 }
 .free {
     text-align: center;
-    background-color: rgb(230, 241, 247);
+    background-color: rgba(215, 213, 213, 0.496);
+    color: black;
     padding: 50px;
+    margin-bottom: 50px;
 }
 .free h2 {
     font-size: 40px;

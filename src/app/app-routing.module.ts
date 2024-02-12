@@ -6,6 +6,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { UserSigninComponent } from './components/user-signin/user-signin.component';
 import { TourDetailsComponent } from './components/tour-details/tour-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AuthGuardCheck } from './services/auth-guard-check.service';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -13,8 +14,9 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "signup", component: SignUpComponent},
   {path: "login", component: UserSigninComponent},
-  {path: "profile", component: UserProfileComponent},
-  {path: "tourDetails/:id", component: TourDetailsComponent}
+  {path: "profile", component: UserProfileComponent, canActivate: [AuthGuardCheck]},
+  {path: "tourDetails/:id", component: TourDetailsComponent},
+  // {path: "**", component: HomeComponent}
 ];
 
 @NgModule({
