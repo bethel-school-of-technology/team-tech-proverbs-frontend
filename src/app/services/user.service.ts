@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/user';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -19,7 +20,7 @@ export class UserService {
   private _isloggedIn = new BehaviorSubject(false);
   isloggedIn = this._isloggedIn.asObservable();
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,private router: Router) {
     if (localStorage.getItem(this.tokenName)) {
       this._isloggedIn.next(true);
     }
