@@ -68,8 +68,17 @@ export class UserService {
   }
 
   updateUserData(userData: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.patch<any>(`${this.Url}/profile`, userData, { headers });
+    const StringToken = localStorage.getItem('jwt');
+    if (StringToken) {
+      const tokenJson = JSON.parse(StringToken);
+      // console.log(tokenJson.token);
+      const headers = new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${tokenJson.token}`
+      );
+      return this.http.patch<any>(`${this.Url}/updateMe`, userData, { headers });
+    }
+    return of([]);
   }
 
   uploadUserPhoto(photo: File): Observable<any> {
@@ -108,10 +117,10 @@ export class UserService {
 
   public handleHttpError(error: any): any {
     console.error(error);
-  
+
     return this.handleError(error);
 
-   
+
   }
 
   private userSubject = new BehaviorSubject<string>('');
