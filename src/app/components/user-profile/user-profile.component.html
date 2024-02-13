@@ -82,7 +82,7 @@
     <div class="user-view__content">
       <div class="user-view__form-container">
         <h2 class="heading-secondary ma-bt-md">Your account settings</h2>
-        <form class="form form-user-data" (submit)="submitUserData()">
+        <form class="form form-user-data" (submit)="submitUserData(this.currentUser)">
           <div class="form__group">
             <label class="form__label" for="name">Name</label>
             <input
@@ -90,6 +90,7 @@
               class="form__input"
               type="text"
               [value]="this.currentUser.name"
+              [(ngModel)]="this.currentUser.name"
               required
               name="name"
             />
@@ -101,6 +102,7 @@
               class="form__input"
               type="email"
               [value]="this.currentUser.email"
+              [(ngModel)]="this.currentUser.email"
               required
               name="email"
             />

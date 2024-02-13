@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -7,9 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  submitUserData() {
-    throw new Error('Method not implemented.');
-  }
+
   onPhotoChange($event: Event) {
     throw new Error('Method not implemented.');
   }
@@ -20,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   user: any;
 
   isloggedIn: boolean = false;
-  currentUser: any;
+  currentUser: any = {};
   constructor (private uservice: UserService) {}
 
   ngOnInit(): void {
@@ -36,5 +35,24 @@ export class UserProfileComponent implements OnInit {
         }
       }
     });
+  }
+  submitUserData(user: User): void  {
+    this.uservice.updateUserData(user).subscribe(response => {
+      this.currentUser = response.data.user;
+      // alert(response.data.user.name);
+      this.resetToken(this.currentUser);
+    });
+  }
+  resetToken(user: any) {
+    const jwtString = localStorage.getItem('jwt');
+        if (jwtString !== null) {
+          const response = JSON.parse(jwtString);
+          response.data.user = this.currentUser;
+          // alert("Updated Successful to:" + response.data.user.name);
+          localStorage.removeItem('jwt');
+          localStorage.setItem('jwt', JSON.stringify(response));
+        } else {
+          alert('user is not available');
+        }
   }
 }
