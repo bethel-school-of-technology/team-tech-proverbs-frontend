@@ -27,7 +27,7 @@ const routes: Routes = [
     component: MyToursComponent,
     canActivate: [AuthGuardCheck],
   },
-  // { path: 'tourDetails/:id', component: TourDetailsComponent },
+  { path: 'tourDetails/:id', component: TourDetailsComponent },
   // { path: '**', component: HomeComponent },
 ];
 
