@@ -126,3 +126,12 @@ button:focus {
 .signup-link {
   margin-top: 20px;
 }
+
+@media (max-width: 540px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+}

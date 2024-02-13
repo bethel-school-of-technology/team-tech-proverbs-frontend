@@ -104,12 +104,21 @@ button:focus {
   text-align: center;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .signin-container {
     max-width: 100%;
   }
-}
+} */
 
 .signup-link {
   margin-top: 20px;
+}
+
+@media (max-width: 540px) {
+  .main {
+    padding: 2rem 1rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
 }
