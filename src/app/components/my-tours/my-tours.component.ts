@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Booking } from 'src/app/model/booking';
-import { Tour } from 'src/app/model/tour';
 import { BookingService } from 'src/app/services/booking.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -27,8 +25,6 @@ export class MyToursComponent {
     });
   }
   deleteBooking() {
-    // checking if the userId is coming properly
-    // alert(this.currentUser._id);
     this.bookingService.deleteBooking(this.currentUser._id,this.TourList[0]._id).subscribe(response => {
       alert("tour has been Deleted");
     })
