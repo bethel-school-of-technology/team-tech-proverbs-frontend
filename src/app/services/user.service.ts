@@ -37,17 +37,7 @@ export class UserService {
     );
   }
 
-  // getMyTours(userId: string): Observable<any> {
-  //   const myToursUrl = `${this.Url}/${userId}/bookings`;
-  //   // const newStrings = `${this.Url}/5c8a1d5b0190b214360dc057/bookings/`;
-  //   return this.http.get<any>(myToursUrl).pipe(
-  //     map((response) => {
-  //       const users = response.data ? response.data.data : null;
-  //       return users ? new User(users) : null;
-  //     })
-  //   );
-  // }
-  getMyTours(): Observable<any> {
+  getMyTours(userId: string): Observable<any> {
     const StringToken = localStorage.getItem('jwt');
     if (StringToken) {
       const tokenJson = JSON.parse(StringToken);
@@ -57,7 +47,7 @@ export class UserService {
         `Bearer ${tokenJson.token}`
       );
       return this.http
-        .get<any>(`${this.Url}/5c8a1d5b0190b214360dc057/bookings`, {
+        .get<any>(`${this.Url}/${userId}/bookings/my-tours`, {
           headers: headers,
         })
         .pipe(map((response) => (response.data ? response.data.bookings : [])));
