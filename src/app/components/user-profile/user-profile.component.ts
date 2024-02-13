@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -7,9 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  submitUserData() {
-    throw new Error('Method not implemented.');
-  }
+
   onPhotoChange($event: Event) {
     throw new Error('Method not implemented.');
   }
@@ -35,6 +34,12 @@ export class UserProfileComponent implements OnInit {
           this.currentUser;
         }
       }
+    });
+  }
+  submitUserData(user: User): void  {
+    this.uservice.updateUserData(user).subscribe(response => {
+      this.currentUser = response.data.user;
+      console.log(response.data.user);
     });
   }
 }

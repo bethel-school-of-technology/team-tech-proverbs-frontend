@@ -41,9 +41,7 @@ export class UserService {
 
   updateUserData(userData: any): Observable<any> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http
-      .patch<any>(`${this.Url}/profile`, userData, { headers })
-      .pipe(catchError(this.handleError));
+    return this.http.patch<any>(`${this.Url}/profile`, userData, { headers });
   }
 
   uploadUserPhoto(photo: File): Observable<any> {

@@ -80,7 +80,7 @@
     <div class="user-view__content">
       <div class="user-view__form-container">
         <h2 class="heading-secondary ma-bt-md">Your account settings</h2>
-        <form class="form form-user-data" (submit)="submitUserData()">
+        <form class="form form-user-data" (submit)="submitUserData(this.currentUser)">
           <div class="form__group">
             <label class="form__label" for="name">Name</label>
             <input
