@@ -82,8 +82,10 @@ export class UserService {
 
   public handleHttpError(error: any): any {
     console.error(error);
-
+  
     return this.handleError(error);
+
+   
   }
 
   private userSubject = new BehaviorSubject<string>('');
