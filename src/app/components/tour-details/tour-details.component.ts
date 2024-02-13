@@ -19,7 +19,6 @@ declare const Stripe: any;
 export class TourDetailsComponent implements OnInit {
   tour: Tour = new Tour();
   tourLocations: string = '';
-  isLoggedIn: boolean = false;
   token: any;
 
   isloggedIn: boolean = false;
@@ -41,10 +40,6 @@ export class TourDetailsComponent implements OnInit {
       // Call map setup logic only after fetching tour data
       this.setupMap();
     });
-    if (this.userService.isloggedIn) {
-      this.isLoggedIn = true;
-    }
-    //chris
     this.userService.isloggedIn.subscribe((loggedIn) => {
       this.isloggedIn = loggedIn;
       if (loggedIn) {

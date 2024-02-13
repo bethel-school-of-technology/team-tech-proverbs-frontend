@@ -5,10 +5,11 @@ import {
   HttpParams,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, tap } from 'rxjs';
+import { Observable, catchError, map, of, tap } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '../model/user';
 import { Router } from '@angular/router';
+import { Booking } from '../model/booking';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +21,7 @@ export class UserService {
   private _isloggedIn = new BehaviorSubject(false);
   isloggedIn = this._isloggedIn.asObservable();
 
-  constructor(private http: HttpClient,private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
     if (localStorage.getItem(this.tokenName)) {
       this._isloggedIn.next(true);
     }
@@ -30,13 +31,40 @@ export class UserService {
     const userUrl = `${this.Url}/${userId}`;
     return this.http.get<any>(userUrl).pipe(
       map((response) => {
-        // Assuming the 'data' property contains the array of tours
         const users = response.data ? response.data.data : null;
-
-        // Assuming your Tour model has properties like startLocation, ratingsAverage, etc.
         return users ? new User(users) : null;
       })
     );
+  }
+
+  // getMyTours(userId: string): Observable<any> {
+  //   const myToursUrl = `${this.Url}/${userId}/bookings`;
+  //   // const newStrings = `${this.Url}/5c8a1d5b0190b214360dc057/bookings/`;
+  //   return this.http.get<any>(myToursUrl).pipe(
+  //     map((response) => {
+  //       const users = response.data ? response.data.data : null;
+  //       return users ? new User(users) : null;
+  //     })
+  //   );
+  // }
+  getMyTours(): Observable<any> {
+    const StringToken = localStorage.getItem('jwt');
+    if (StringToken) {
+      const tokenJson = JSON.parse(StringToken);
+      // console.log(tokenJson.token);
+      const headers = new HttpHeaders().set(
+        'Authorization',
+        `Bearer ${tokenJson.token}`
+      );
+      return this.http
+        .get<any>(`${this.Url}/5c8a1d5b0190b214360dc057/bookings`, {
+          headers: headers,
+        })
+        .pipe(map((response) => (response.data ? response.data.bookings : [])));
+    } else {
+      console.log('invalid token');
+      return of([]);
+    }
   }
 
   updateUserData(userData: any): Observable<any> {
@@ -166,24 +194,17 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
-  // getCurrentUser(): Observable<User> {
-  //   const reqHeaders = new HttpHeaders({
-  //     Authorization: `Bearer ${localStorage.getItem(this.tokenName)}`
-  //   });
-
-  //   return this.http.get<User>(`${this.Url}/me`, { headers: reqHeaders });
-  // }
   getCurrentUser(): Observable<any> {
-     let reqHeaders = localStorage.getItem(this.tokenName)
-    console.log(reqHeaders)
-    
+    let reqHeaders = localStorage.getItem(this.tokenName);
+    console.log(reqHeaders);
+
     // this.tokenName = reqHeaders.token
     return this.http.get<any>(`${this.Url}/me`).pipe(
       map((response) => {
         // console.log(response);
         return {
           ...response,
-          token: localStorage.getItem(this.tokenName) // Assuming the token is stored in localStorage
+          token: localStorage.getItem(this.tokenName), // Assuming the token is stored in localStorage
         };
       })
     );
