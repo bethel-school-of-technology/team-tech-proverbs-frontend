@@ -180,6 +180,57 @@ footer {
     }
 }  
 
+@media only screen and (max-width: 913px) {
+    .nav-logo .logoImg {
+        width: 30%;
+        /* background-color: #777; */
+        margin-left: 0;
+    }
+    .nav-logo .logoImg img {
+        width: 150%;
+        height: 100%;
+        text-align: right;
+        margin: 0;
+    }
+    .text {
+        width: 60%;
+        margin: 0;
+        padding-top: 27px;
+    }
+    .mobile {
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+    .mobile svg {
+        width: 20%;
+        margin: 20px;
+    }
+    .icons {
+        color: #7dd56f;
+    }
+}
+
+@media only screen and (max-width: 1025px) {
+    .nav-logo .logoImg {
+        width: 30%;
+        /* background-color: #777; */
+        margin-left: 0;
+    }
+    .nav-logo .logoImg img {
+        width: 150%;
+        height: 100%;
+        text-align: right;
+        margin: 0;
+    }
+    .text {
+        width: 60%;
+        margin: 0;
+        padding-top: 27px;
+    }
+}
+
 .btn,
 .btn:link,
 .btn:visited {
