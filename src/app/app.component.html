@@ -42,10 +42,11 @@
   <ul (click)="toggleMenu()">
     <li routerLink="home">HOME</li>
     <li routerLink="tours">TOURS</li>
-    <li routerLink="aboutus">About Us</li>
+    <li routerLink="aboutus">ABOUT US</li>
     <li routerLink="login" *ngIf="!isloggedIn">SIGNIN</li>
     <li routerLink="signup" *ngIf="!isloggedIn">SIGNUP</li>
     <li *ngIf="isloggedIn" routerLink="profile">PROFILE</li>
+    <li *ngIf="isloggedIn" (click)="logout()">LOGOUT</li>
 
   </ul>
 </div>
