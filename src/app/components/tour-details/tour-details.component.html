@@ -169,7 +169,7 @@
         today!
       </p>
 
-      <ng-container *ngIf="isLoggedIn; else loginButton">
+      <ng-container *ngIf="isloggedIn; else loginButton">
         <button class="btn btn--green span-all-rows" id="book-tour" (click)="processPayment()" [attr.data-tour-id]="tour.id">Book tour now!</button>
       </ng-container>
       

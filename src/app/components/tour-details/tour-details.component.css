@@ -53,7 +53,7 @@
 }
 .heading-box h1 {
   margin-left: 60px;
-  font-size: 2.9rem;
+  font-size: 2.7rem;
 }
 
 .heading-box__group {
@@ -464,72 +464,6 @@
   padding: 0 8rem;
 }
 
-@media (max-width: 992px) {
-  .description-box .description__text {
-    font-size: 1.4rem;
-  }
-
-  .description__text {
-    margin-bottom: 50px;
-  }
-  .section-reviews {
-    height: 65vh;
-  }
-  .reviews {
-    padding: 1rem 0;
-  }
-  .reviews__card {
-    padding: 3rem;
-  }
-  .picture-box {
-    height: 50vh;
-  }
-}
-
-@media (max-width: 768px) {
-  .heading-box h1 {
-    font-size: 20px;
-    margin-left: 38px;
-    margin-top: 20px;
-  }
-
-  .section-header {
-    height: 50vh;
-  }
-  .section-description {
-    display: block;
-    text-align: center;
-  }
-  .description__text {
-    text-align: left;
-    margin-bottom: 50px;
-  }
-  .description-box .description__text {
-    font-size: 1.4rem;
-  }
-  .section-reviews {
-    height: 55vh;
-  }
-  .reviews {
-    padding: 1rem 0;
-  }
-  .reviews__card {
-    padding: 2rem;
-  }
-  .cta__content .cta__text {
-    font-size: 1.4rem;
-  }
-  .picture-box {
-    height: 45vh;
-  }
-  .cta__content {
-    display: block;  
-  }
-  .cta__content a {
-    font-size: small;
-  }
-}
-
 .btn,
 .btn:link,
 .btn:visited {
@@ -649,4 +583,96 @@
   outline: none;
   outline: 3px solid #55c57a;
   outline-offset: 3px;
+}
+
+@media (max-width: 992px) {
+  .description-box .description__text {
+    font-size: 1.4rem;
+  }
+
+  .description__text {
+    margin-bottom: 50px;
+  }
+  .section-reviews {
+    height: 65vh;
+  }
+  .reviews {
+    padding: 1rem 0;
+  }
+  .reviews__card {
+    padding: 3rem;
+  }
+  .picture-box {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading-box h1 {
+    font-size: 20px;
+    margin-left: 38px;
+    margin-top: 20px;
+  }
+
+  .section-header {
+    height: 50vh;
+  }
+  .section-description {
+    display: block;
+    text-align: center;
+  }
+  .description__text {
+    text-align: left;
+    margin-bottom: 50px;
+  }
+  .description-box .description__text {
+    font-size: 1.4rem;
+  }
+  .section-reviews {
+    height: 55vh;
+  }
+  .reviews {
+    padding: 1rem 0;
+  }
+  .reviews__card {
+    padding: 2rem;
+  }
+  .cta__content .cta__text {
+    font-size: 1.4rem;
+  }
+  .picture-box {
+    height: 45vh;
+  }
+  .cta__content {
+    display: block;
+  }
+  .cta__content a {
+    font-size: small;
+  }
+}
+
+@media (max-width: 512px) {
+  .cta {
+    padding: 5rem 2rem 5rem 18rem;
+  }
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 1.2rem 2rem;
+    font-size: 1.1rem;
+  }
+  .section-cta {
+    margin-top: calc(0px - var(--section-rotate));
+    padding: 5rem 1rem;
+    padding-bottom: 11rem;
+  }
+}
+
+@media (max-width: 449px) {
+  .heading-box__detail {
+    font-size: 1.2rem;
+  }
+  .heading-box h1 {
+    font-size: 2.1rem;
+  }
 }

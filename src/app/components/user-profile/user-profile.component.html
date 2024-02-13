@@ -2,18 +2,20 @@
   <div class="user-view">
     <nav class="user-view__menu">
       <ul class="side-nav">
-        <li [class.side-nav--active]="activeNavItem === 'settings'">
+        <li [class.side-nav--active]="activeNavItem === true">
           <a routerLink="#">
             <svg>
-              <use xlink:href="img/icons.svg#icon-settings"></use>
+              <use xlink:href="../../../assets/img/icons.svg#icon-settings"></use>
             </svg>
             Settings
           </a>
         </li>
         <li [class.side-nav--active]="activeNavItem === 'my-tours'">
-          <a routerLink="#">
+          <a routerLink="my-tours">
             <svg>
-              <use xlink:href="img/icons.svg#icon-briefcase"></use>
+              <use
+                xlink:href="../../../assets/img/icons.svg#icon-briefcase"
+              ></use>
             </svg>
             My bookings
           </a>
@@ -21,7 +23,7 @@
         <li [class.side-nav--active]="activeNavItem === 'my-reviews'">
           <a routerLink="#">
             <svg>
-              <use xlink:href="img/icons.svg#icon-star"></use>
+              <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
             </svg>
             My reviews
           </a>
@@ -29,7 +31,7 @@
         <li [class.side-nav--active]="activeNavItem === 'billing'">
           <a routerLink="#">
             <svg>
-              <use xlink:href="img/icons.svg#icon-credit-card"></use>
+              <use xlink:href="../../../assets/img/icons.svg#icon-credit-card"></use>
             </svg>
             Billing
           </a>
@@ -41,7 +43,7 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-tours'">
                 <a routerLink="/manage-tours">
                   <svg>
-                    <use xlink:href="img/icons.svg#icon-map"></use>
+                    <use xlink:href="../../../assets/img/icons.svg#icon-map"></use>
                   </svg>
                   Manage tours
                 </a>
@@ -49,7 +51,7 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-users'">
                 <a routerLink="/manage-users">
                   <svg>
-                    <use xlink:href="img/icons.svg#icon-users"></use>
+                    <use xlink:href="../../../assets/img/icons.svg#icon-users"></use>
                   </svg>
                   Manage users
                 </a>
@@ -57,7 +59,7 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-reviews'">
                 <a routerLink="/manage-reviews">
                   <svg>
-                    <use xlink:href="img/icons.svg#icon-star"></use>
+                    <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
                   </svg>
                   Manage reviews
                 </a>
@@ -67,7 +69,7 @@
               >
                 <a routerLink="/manage-bookings">
                   <svg>
-                    <use xlink:href="img/icons.svg#icon-briefcase"></use>
+                    <use xlink:href="../../../assets/img/icons.svg#icon-briefcase"></use>
                   </svg>
                   Manage bookings
                 </a>
