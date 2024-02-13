@@ -1,72 +1,76 @@
 <section class="overview container">
   <div class="card-container row">
-    <div class="card" *ngFor="let tour of TourList">
+    <div class="card" *ngFor="let booked of TourList">
       <div class="card__header">
         <div class="card__picture">
           <div class="card__picture-overlay">&nbsp;</div>
           <img
-            [src]="'../../../assets/img/tours/' + tour.data.bookings.name"
-            alt="{{ tour.data.bookings.name }}"
+            [src]="'../../../assets/img/tours/' + booked.tour.imageCover"
+            alt="{{ booked.tour.name }}"
             class="card__picture-img"
           />
         </div>
 
         <h3 class="heading-tertirary">
-          <span>{{ tour.data.bookings.name }}</span>
+          <span>{{ booked.tour.name }}</span>
         </h3>
       </div>
 
       <div class="card__details">
         <h4 class="card__sub-heading">
-          {{ tour.data.bookings.difficulty }}
-          {{ tour.data.bookings.duration }}-day tour
+          {{ booked.tour.difficulty }}
+          {{ booked.tour.duration }}-day tour
         </h4>
         <p class="card__text">
-          {{ tour.data.bookings.summary }}
+          {{ booked.tour.summary }}
         </p>
         <div class="card__data">
           <svg class="card__icon">
             <use xlink:href="../../../assets/img/icons.svg#icon-map-pin"></use>
           </svg>
-          <span>{{ tour.data.bookings.startLocation.description }}</span>
+          <span>{{ booked.tour.startLocation.description }}</span>
         </div>
         <div class="card__data">
           <svg class="card__icon">
             <use xlink:href="../../../assets/img/icons.svg#icon-calendar"></use>
           </svg>
           <span>{{
-            tour.data.bookings.startDates[0] | date : "MMMM yyyy"
+            booked.tour.startDates[0] | date : "MMMM yyyy"
           }}</span>
         </div>
         <div class="card__data">
           <svg class="card__icon">
             <use xlink:href="../../../assets/img/icons.svg#icon-flag"></use>
           </svg>
-          <span>{{ tour.data.bookings.locations.length }}</span>
+          <span>{{ booked.tour.locations.length }}</span>
         </div>
         <div class="card__data">
           <svg class="card__icon">
             <use xlink:href="../../../assets/img/icons.svg#icon-user"></use>
           </svg>
-          <span>{{ tour.data.bookings.maxGroupSize }} people</span>
+          <span>{{ booked.tour.maxGroupSize }} people</span>
         </div>
       </div>
 
       <div class="card__footer">
         <p>
           <span class="card__footer-value"
-            >${{ tour.data.bookings.price }}</span
+            >${{ booked.tour.price }}</span
           >
           <span class="card__footer-text"> per person</span>
         </p>
         <p class="card__ratings">
           <span class="card__footer-value">{{
-            tour.data.bookings.ratingsAverage
+            booked.tour.ratingsAverage
           }}</span>
           <span class="card__footer-text">
-            rating ({{ tour.data.bookings.ratingsQuantity }})</span
+            rating ({{ booked.tour.ratingsQuantity }})</span
           >
         </p>
+        <a
+        (click)="deleteBooking()"
+        class="btn btn--green btn--small"
+        >Delete Booking</a>
       </div>
     </div>
   </div>
