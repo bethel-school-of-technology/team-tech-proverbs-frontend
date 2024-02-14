@@ -42,7 +42,7 @@
   </div>
 
     <div class="free">
-      <h2>Top Tours Based on Reviews</h2>
+      <h2>Top tours based on reviews</h2>
     </div>
   <div class="topTours">
     <div class="eachTour" *ngFor="let tour of TopTours">
@@ -72,8 +72,9 @@
         <h2>{{tour.name}}</h2>
         <p>Rating: {{ tour.ratingsAverage}}</p>
         <p>Price: ${{ tour.price}}</p>
-        <a class="btn btn--small btn--green btnM" [routerLink]="'/tourDetails/' + tour.id">View</a>
+        <a class="btn btn--small btn--white btnM" [routerLink]="'/tourDetails/' + tour.id">View</a>
       </div>
     </div>
+    <a class="btn btn--green span-all-rows" [routerLink]="'/tours/'">CLICK HERE TO SEE ALL TOURS</a>
   </div>
 </div>
