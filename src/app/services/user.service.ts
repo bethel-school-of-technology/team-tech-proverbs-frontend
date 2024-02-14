@@ -50,7 +50,7 @@ export class UserService {
     const formData: FormData = new FormData();
     formData.append('photo', photo);
     return this.http
-      .post<any>(`${this.Url}/uploadPhoto`, formData)
+      .post<any>(`${this.Url}/updateMe`, formData)
       .pipe(catchError(this.handleError));
   }
   private handleError(error: any): string {

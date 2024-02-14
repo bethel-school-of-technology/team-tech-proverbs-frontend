@@ -28,9 +28,10 @@ export class UserSigninComponent {
       console.error('Logged in Fail', error);
       
       if (error.status === 401) {
-        this.errorMessage = 'An unexpected error occurred.';
+        this.errorMessage = 'Signin failed. Incorrect Email or Password. Try to Login Again';
+      
       } else {
-        this.errorMessage = 'Signin failed. Wrong password. Try to Login Again';
+        this.errorMessage = 'An unexpected error occurred.';
         
       }
     }
