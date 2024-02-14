@@ -110,8 +110,7 @@
           <div class="form__group form__photo-upload">
             <img
               class="form__user-photo"
-              [src]="'/img/users/' + this.currentUser.photo"
-              [alt]="user.name"
+              [(src)]="'../../../assets/img/users/' + this.currentUser.photo"
             />
             <input
               class="form__upload"
@@ -119,7 +118,7 @@
               accept="image/*"
               id="photo"
               name="photo"
-              (change)="onPhotoChange($event)"
+              (change)="onPhotoChange(this.currentUser.photo)"
             />
             <label for="photo">Choose new photo</label>
           </div>
