@@ -584,6 +584,9 @@
   outline: 3px solid #55c57a;
   outline-offset: 3px;
 }
+.reviews::-webkit-scrollbar {
+  display: none;
+}
 
 @media (max-width: 992px) {
   .description-box .description__text {
