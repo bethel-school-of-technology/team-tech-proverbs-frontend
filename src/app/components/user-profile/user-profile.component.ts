@@ -9,9 +9,6 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  onPhotoChange($event: Event) {
-    throw new Error('Method not implemented.');
-  }
   submitPassword() {
     throw new Error('Method not implemented.');
   }
@@ -42,6 +39,10 @@ export class UserProfileComponent implements OnInit {
       // alert(response.data.user.name);
       this.resetToken(this.currentUser);
     });
+  }
+  onPhotoChange(image: string) {
+    this.currentUser.photo = image;
+    alert(image);
   }
   resetToken(user: any) {
     const jwtString = localStorage.getItem('jwt');

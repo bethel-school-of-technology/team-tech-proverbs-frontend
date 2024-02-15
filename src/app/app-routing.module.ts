@@ -17,16 +17,8 @@ const routes: Routes = [
   { path: 'signup', component: SignUpComponent },
   { path: 'login', component: UserSigninComponent },
   { path: 'aboutus', component: AboutUsComponent },
-  {
-    path: 'profile',
-    component: UserProfileComponent,
-    canActivate: [AuthGuardCheck],
-  },
-  {
-    path: 'profile/my-tours',
-    component: MyToursComponent,
-    canActivate: [AuthGuardCheck],
-  },
+  {path: 'profile',component: UserProfileComponent,canActivate: [AuthGuardCheck],},
+  {path: 'profile/my-tours',component: MyToursComponent,canActivate: [AuthGuardCheck],},
   { path: 'tourDetails/:id', component: TourDetailsComponent },
   // { path: '**', component: HomeComponent },
 ];
