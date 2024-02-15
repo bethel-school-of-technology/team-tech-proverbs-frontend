@@ -5,7 +5,9 @@
         <li [class.side-nav--active]="activeNavItem === true">
           <a routerLink="#">
             <svg>
-              <use xlink:href="../../../assets/img/icons.svg#icon-settings"></use>
+              <use
+                xlink:href="../../../assets/img/icons.svg#icon-settings"
+              ></use>
             </svg>
             Settings
           </a>
@@ -31,7 +33,9 @@
         <li [class.side-nav--active]="activeNavItem === 'billing'">
           <a routerLink="#">
             <svg>
-              <use xlink:href="../../../assets/img/icons.svg#icon-credit-card"></use>
+              <use
+                xlink:href="../../../assets/img/icons.svg#icon-credit-card"
+              ></use>
             </svg>
             Billing
           </a>
@@ -43,7 +47,9 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-tours'">
                 <a routerLink="/manage-tours">
                   <svg>
-                    <use xlink:href="../../../assets/img/icons.svg#icon-map"></use>
+                    <use
+                      xlink:href="../../../assets/img/icons.svg#icon-map"
+                    ></use>
                   </svg>
                   Manage tours
                 </a>
@@ -51,7 +57,9 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-users'">
                 <a routerLink="/manage-users">
                   <svg>
-                    <use xlink:href="../../../assets/img/icons.svg#icon-users"></use>
+                    <use
+                      xlink:href="../../../assets/img/icons.svg#icon-users"
+                    ></use>
                   </svg>
                   Manage users
                 </a>
@@ -59,7 +67,9 @@
               <li [class.side-nav--active]="activeNavItem === 'manage-reviews'">
                 <a routerLink="/manage-reviews">
                   <svg>
-                    <use xlink:href="../../../assets/img/icons.svg#icon-star"></use>
+                    <use
+                      xlink:href="../../../assets/img/icons.svg#icon-star"
+                    ></use>
                   </svg>
                   Manage reviews
                 </a>
@@ -69,7 +79,9 @@
               >
                 <a routerLink="/manage-bookings">
                   <svg>
-                    <use xlink:href="../../../assets/img/icons.svg#icon-briefcase"></use>
+                    <use
+                      xlink:href="../../../assets/img/icons.svg#icon-briefcase"
+                    ></use>
                   </svg>
                   Manage bookings
                 </a>
@@ -82,7 +94,10 @@
     <div class="user-view__content">
       <div class="user-view__form-container">
         <h2 class="heading-secondary ma-bt-md">Your account settings</h2>
-        <form class="form form-user-data" (submit)="submitUserData(this.currentUser)">
+        <form
+          class="form form-user-data"
+          (submit)="submitUserData(this.currentUser)"
+        >
           <div class="form__group">
             <label class="form__label" for="name">Name</label>
             <input
@@ -110,7 +125,7 @@
           <div class="form__group form__photo-upload">
             <img
               class="form__user-photo"
-              [(src)]="'../../../assets/img/users/' + this.currentUser.photo"
+              [src]="'http://localhost:3004/public/img/users/' + this.currentUser.photo"
             />
             <input
               class="form__upload"
@@ -118,7 +133,7 @@
               accept="image/*"
               id="photo"
               name="photo"
-              (change)="onPhotoChange(this.currentUser.photo)"
+              (change)="onPhotoChange($event)"
             />
             <label for="photo">Choose new photo</label>
           </div>
