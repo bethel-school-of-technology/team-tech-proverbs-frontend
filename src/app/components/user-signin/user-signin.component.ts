@@ -22,16 +22,15 @@ export class UserSigninComponent {
     {
       // console.log('logged in successfully', response.data);
       this.userservice.setUserEmail(response.data.user.email);
-      this.router.navigate(['/profile']);
+      this.router.navigate(['/home']);
     },
     (error) => {
       console.error('Logged in Fail', error);
       
       if (error.status === 401) {
-        this.errorMessage = 'Signin failed. Incorrect Email or Password. Try to Login Again';
-      
-      } else {
         this.errorMessage = 'An unexpected error occurred.';
+      } else {
+        this.errorMessage = 'Signin failed. Wrong password. Try to Login Again';
         
       }
     }
