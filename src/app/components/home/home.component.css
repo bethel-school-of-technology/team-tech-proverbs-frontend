@@ -1,219 +1,349 @@
 .parent {
-    width: 100%;
-    /* margin-top: 100px; */
+  width: 100%;
+  /* margin-top: 100px; */
 }
 .heading {
-    background-image: url(https://images.unsplash.com/photo-1705311756049-d4720db623f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    object-fit: cover;
-    width: 100%;
-    padding: 200px;
-    text-align: center;
-    color: white;
+  background-image: url(https://images.unsplash.com/photo-1705311756049-d4720db623f3?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  width: 100%;
+  padding: 200px;
+  text-align: center;
+  color: white;
 }
 .heading h1 {
-    font-size: 50px;
-    font-weight: bolder;
-    color: #55c57a;
-    color: white;
+  font-size: 50px;
+  font-weight: bolder;
+  color: #55c57a;
+  color: white;
 }
 .heading span {
-    color: #55c57a;
+  color: #55c57a;
 }
 .width-10 {
-    width: 50px;
+  width: 50px;
 }
 .parentCard {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-around;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-around;
 }
 .WhyCard {
-    width: 400px;
-    text-align: center;
-    padding: 10px;
+  width: 400px;
+  text-align: center;
+  padding: 10px;
 }
 .WhyCard h2 {
-    color: black;
-} 
+  color: black;
+}
 .topHead {
-    text-align: center;
-    margin-top: 40px;
+  text-align: center;
+  margin-top: 40px;
 }
 .topTours {
-    display: flex;
-    justify-content: space-around;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 20px;
 }
 .eachTour {
-    text-align: left;
-    width: 30%;
-    margin: 10px;
+  text-align: left;
+  width: 30%;
+  margin: 10px;
 }
 .eachTour img {
-    width: 100%;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+  width: 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .eachTour p {
-    width: 100%;
+  width: 100%;
 }
-.reviews svg{
-    width: 25px;
-    color: white;
+.reviews svg {
+  width: 25px;
+  color: white;
 }
 .reviews span {
-    font-weight: bold;
+  font-weight: bold;
 }
 .toupar {
-    margin-top: 5px;
+  margin-top: 5px;
 }
 .price {
-    font-weight: bold;
+  font-weight: bold;
 }
 .free {
     text-align: center;
-    background-color: rgb(230, 241, 247);
+    background-color: rgba(215, 213, 213, 0.496);
+    color: black;
     padding: 50px;
+    margin-bottom: 50px;
 }
 .free h2 {
-    font-size: 40px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-family: sans-serif;
 }
 .otherDest {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 40px;
 }
 .otherParent {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    width: 80%;
-    margin: auto;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    overflow-x: auto;
-    white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 .children {
-    width: 300px;
-    text-align: left;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 7px;
+  margin-bottom: 12px;
+}
+.otherParent::-webkit-scrollbar {
+    display: none;
 }
 .children img {
-    width: 100%;
-    height: 50%;
-    object-fit: cover;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 .children h2 {
-    margin: 0;
-    padding: 0;
-    margin-left: 10px;
-    padding-top: 10px;
+  margin: 0;
+  padding: 0;
+  margin-left: 10px;
+  padding-top: 10px;
 }
 .children p {
-    margin-left: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-left: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
+@media only screen and (max-width: 376px) {
+  .heading {
+    padding: 0px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    /* position: relative; */
+    /* margin-top: 100px; */
+  }
+  .heading h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #55c57a;
+    color: white;
+  }
+  .parentCard {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  .WhyCard {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    margin-top: 20px;
+    /* background-color: blue; */
+  }
+  .topTours {
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+  }
+  .eachTour {
+    width: 90%;
+  }
+  .otherParent {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+  .children {
+    width: 100%;
+    text-align: left;
+    border-radius: 10px;
+    padding-bottom: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media only screen and (max-width: 753px) {
+  .heading {
+    padding: 0px;
+    padding-top: 200px;
+    padding-bottom: 200px;
+    position: relative;
+  }
+  .heading h1 {
+    font-size: 30px;
+    font-weight: bolder;
+    color: #55c57a;
+    color: white;
+    white-space: pre-wrap;
+  }
+  .parentCard {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+  }
+  .WhyCard {
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    padding: 0;
+    margin-top: 20px;
+    /* background-color: blue; */
+  }
+  .topTours {
+    flex-direction: column;
+    margin: auto;
+    text-align: center;
+  }
+  .eachTour {
+    width: 90%;
+  }
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  font-size: 1.6rem;
+  padding: 1.4rem 3rem;
+  border-radius: 10rem;
+  /* text-transform: uppercase; */
+  display: inline-block;
+  text-decoration: none;
+  position: relative;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-weight: 400;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  -webkit-transform: translateY(-3px);
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  -webkit-transform: translateY(-1px);
+  transform: translateY(-1px);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.btn:focus {
+  outline: none;
+  background-color: #2e864b;
+}
+
+.btn--white {
+  background-color: #f4f4f4;
+  color: #777;
+}
+.btn--white::after {
+  background-color: #fff;
+}
+
+.btn--green {
+  background-color: #55c57a;
+  color: #fff;
+}
+.btn--green::after {
+  background-color: #55c57a;
+}
+.btn--black {
+  background-color: black;
+  color: white;
+}
+.btn--black::after {
+  background-color: white;
+}
+
+.btn--small {
+  padding: 1.25rem 3rem !important;
+  font-size: 1.4rem !important;
+}
+
+.btn-small,
+.btn-small:link,
+.btn-small:visited {
+  background-color: #55c57a;
+  color: #fff;
+  font-size: 1.4rem;
+  padding: 1.25rem 3rem;
+  border-radius: 10rem;
+  /* text-transform: uppercase; */
+  position: relative;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 400;
+  border: none;
+}
+
+.btn-small:hover {
+  background-color: #7dd56f;
+}
+
+.btn-text:link,
+.btn-text:visited {
+  color: #55c57a;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid #55c57a;
+  padding: 3px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.btn-text:hover {
+  background-color: #55c57a;
+  color: #fff;
+  -webkit-box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+}
+
+.btn-text:active {
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+  -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.btn-text:focus {
+  outline: none;
+  outline: 3px solid #55c57a;
+  outline-offset: 3px;
+}
+
 .btnM {
     margin-left: 10px;
-}
-
-@media only screen and (max-width: 376px) {
-    .heading {
-        padding: 0px;
-        padding-top: 120px;
-        padding-bottom: 120px;
-        /* position: relative; */
-        /* margin-top: 100px; */
-    }
-    .heading h1 {
-        font-size: 30px;
-        font-weight: bolder;
-        color: #55c57a;
-        color: white;
-    } 
-    .parentCard {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        margin: auto;
-        text-align: center;
-    }
-    .WhyCard {
-        width: 90%;
-        margin: auto;
-        text-align: center;
-        padding: 0;
-        margin-top: 20px;
-        /* background-color: blue; */
-    }
-    .topTours {
-        flex-direction: column;
-        margin: auto;
-        text-align: center;
-    }
-    .eachTour {
-        width: 90%;
-    }
-    .otherParent{
-        display: flex;
-        flex-wrap: nowrap;
-    }
-    .children {
-        width: 100%;
-        text-align: left;
-        border-radius: 10px;
-        padding-bottom: 40px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-}
-
-@media only screen and (max-width: 753px) { 
-    .heading {
-        padding: 0px;
-        padding-top: 200px;
-        padding-bottom: 200px;
-        position: relative;
-    }
-    .heading h1 {
-        font-size: 30px;
-        font-weight: bolder;
-        color: #55c57a;
-        color: white;
-        white-space: pre-wrap;
-    }
-    .parentCard {
-        display: flex;
-        flex-direction: column;
-        width: 90%;
-        margin: auto;
-        text-align: center;
-    }
-    .WhyCard {
-        width: 90%;
-        margin: auto;
-        text-align: center;
-        padding: 0;
-        margin-top: 20px;
-        /* background-color: blue; */
-    }
-    .topTours {
-        flex-direction: column;
-        margin: auto;
-        text-align: center;
-    }
-    .eachTour {
-        width: 90%;
-    }
-}
+  }

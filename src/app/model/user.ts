@@ -3,7 +3,7 @@ export class User {
     id: string = "";
     name: string = "";
     email: string = "";
-    photo: string = "";
+    photo?: File | null | undefined;
     role?: 'user' | 'guide' | 'lead-guide' | 'admin' ;
     password: string = ""; 
     passwordConfirm: string = ""; 
