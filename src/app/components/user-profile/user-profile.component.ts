@@ -41,6 +41,7 @@ export class UserProfileComponent implements OnInit {
     if (user.photo && typeof user.photo !== 'string') {
       formData.append('photo', user.photo, user.photo.name); // Append the File object directly
     }
+    +
 
     this.uservice.updateUserData(formData).subscribe((response) => {
       this.currentUser = response.data.user;
