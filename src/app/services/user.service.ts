@@ -93,8 +93,9 @@ export class UserService {
       }
 
       // Display the error message in the console
-      console.log(errorMessage);
-      alert(errorMessage);
+      // console.log(errorMessage);
+
+      // alert(errorMessage);
 
       // window.alert(errorMessage)
       // Return the error message
@@ -106,7 +107,7 @@ export class UserService {
   }
 
   public handleHttpError(error: any): any {
-    console.error(error);
+    // console.error(error);
 
     return this.handleError(error);
 
@@ -123,7 +124,7 @@ export class UserService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this.http
       .post<any>(`${this.Url}/signup`, user, { headers })
-      .pipe(catchError(this.handleError));
+      // .pipe(catchError(this.handleError));
   }
 
   login(credentials: any): Observable<any> {
