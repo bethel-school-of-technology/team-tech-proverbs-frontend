@@ -24,18 +24,18 @@ export class AppComponent implements OnInit{
     this.isMenuOpen = !this.isMenuOpen;
     // console.log(this.isMenuOpen);
   }
+  
   ngOnInit(): void {
-
-    this.uservice.isloggedIn.subscribe(loggedIn => {
+    this.uservice.isloggedIn.subscribe((loggedIn) => {
       this.isloggedIn = loggedIn;
-      if(loggedIn) {
+      if (loggedIn) {
         const jwtString = localStorage.getItem('jwt');
-        if(jwtString !== null) {
-            const response = JSON.parse(jwtString);
-            this.currentUser = response.data.user;
-          } else {
-            this.currentUser;
-          }
+        if (jwtString !== null) {
+          const response = JSON.parse(jwtString);
+          this.currentUser = response.data.user;
+        } else {
+          this.currentUser;
+        }
       }
     });
   }
