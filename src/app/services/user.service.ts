@@ -15,7 +15,7 @@ import { Booking } from '../model/booking';
   providedIn: 'root',
 })
 export class UserService {
-  Url = 'http://127.0.0.1:3004/api/v1/users';
+  Url = 'http://awesometours.org/api/v1/users';
   private tokenName: string = 'jwt';
 
   private _isloggedIn = new BehaviorSubject(false);

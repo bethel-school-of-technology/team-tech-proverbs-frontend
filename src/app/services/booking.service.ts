@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class BookingService {
-  private baseUrl = 'http://127.0.0.1:3004/api/v1/bookings/';
-  private deleteUrl = 'http://127.0.0.1:3004/api/v1/users/';
+  private baseUrl = 'http://awesometours.org/api/v1/bookings/';
+  private deleteUrl = 'http://awesometours.org/api/v1/users/';
 
   constructor(private http: HttpClient) {}
 

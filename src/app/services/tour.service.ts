@@ -7,7 +7,7 @@ import { Tour } from '../model/tour';
   providedIn: 'root',
 })
 export class TourService {
-  Url = 'http://127.0.0.1:3004/api/v1/tours';
+  Url = 'http://awesometours.org/api/v1/tours';
 
   constructor(private http: HttpClient) {}
 
