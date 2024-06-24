@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { GetAllToursComponent } from './components/get-all-tours/get-all-tours.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,7 +25,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),
+    HttpClientModule
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
