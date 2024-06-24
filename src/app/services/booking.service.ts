@@ -6,8 +6,8 @@ import { Observable, of } from 'rxjs';
   providedIn: 'root',
 })
 export class BookingService {
-  private baseUrl = 'http://awesometours.org/api/v1/bookings/';
-  private deleteUrl = 'http://awesometours.org/api/v1/users/';
+  private baseUrl = 'https://awesometours.org/api/v1/bookings/';
+  private deleteUrl = 'https://awesometours.org/api/v1/users/';
 
   constructor(private http: HttpClient) {}
 
